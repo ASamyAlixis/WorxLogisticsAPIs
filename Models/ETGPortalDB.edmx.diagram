@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="55f3c32a6062453b92ecca8b445b4ac1" Name="Diagram1">
+        <EntityTypeShape EntityType="Worx_ELogisticsModel.Wrx_Commodity" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Worx_ELogisticsModel.Wrx_Containers" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Worx_ELogisticsModel.Wrx_ContainerTypes" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Worx_ELogisticsModel.Wrx_Continents" Width="1.5" PointX="7.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="Worx_ELogisticsModel.Wrx_Countries" Width="1.5" PointX="10" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Worx_ELogisticsModel.Wrx_CropYear" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Worx_ELogisticsModel.Wrx_Customers" Width="1.5" PointX="5.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Worx_ELogisticsModel.Wrx_Destination" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Worx_ELogisticsModel.Wrx_DocumentTerms" Width="1.5" PointX="10.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Worx_ELogisticsModel.Wrx_DTHC" Width="1.5" PointX="7.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Worx_ELogisticsModel.Wrx_FCL" Width="1.5" PointX="9.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Worx_ELogisticsModel.Wrx_Grade" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Worx_ELogisticsModel.Wrx_Main" Width="1.5" PointX="2.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Worx_ELogisticsModel.Wrx_ManyMany" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Worx_ELogisticsModel.Wrx_Origin" Width="1.5" PointX="11.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Worx_ELogisticsModel.Wrx_Ports" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Worx_ELogisticsModel.Wrx_SecurityLevel" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Worx_ELogisticsModel.Wrx_SendingBank" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Worx_ELogisticsModel.Wrx_ServcieType" Width="1.5" PointX="0.75" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Worx_ELogisticsModel.Wrx_Teams" Width="1.5" PointX="0.75" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Worx_ELogisticsModel.Wrx_Transloaders" Width="1.5" PointX="0.75" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Worx_ELogisticsModel.Wrx_Units" Width="1.5" PointX="0.75" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Worx_ELogisticsModel.Wrx_User" Width="1.5" PointX="0.75" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Worx_ELogisticsModel.Wrx_Company" Width="1.5" PointX="12.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Worx_ELogisticsModel.Wrx_DocumentationTracking" Width="1.5" PointX="5" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Worx_ELogisticsModel.Wrx_RailCars" Width="1.5" PointX="13.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Worx_ELogisticsModel.Wrx_SalesContract" Width="1.5" PointX="8" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="Worx_ELogisticsModel.FK_Wrx_Countries_Wrx_Continents" ManuallyRouted="false" />
+        <AssociationConnector Association="Worx_ELogisticsModel.FK_Wrx_SalesContract_Wrx_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="Worx_ELogisticsModel.tblDocumentationTracking__99F7002C_D1EF_4964_96C8_331E3EA86946_" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
