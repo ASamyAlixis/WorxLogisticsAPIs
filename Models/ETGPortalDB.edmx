@@ -330,6 +330,48 @@ warning 6002: The table/view 'Worx_ELogistics.dbo.Wrx_RailCars' does not have a 
           <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6013: The table/view 'Worx_ELogistics.dbo.Wrx_RawData' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Wrx_RawData">
+          <Property Name="ConID" Type="nchar" MaxLength="10" />
+          <Property Name="Businessunit" Type="nvarchar" MaxLength="50" />
+          <Property Name="Buyer" Type="nvarchar" MaxLength="50" />
+          <Property Name="Configuration" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contractdate" Type="datetime" />
+          <Property Name="Contractnumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contractquantity" Type="float" />
+          <Property Name="Contractstatus" Type="nchar" MaxLength="10" />
+          <Property Name="Currency" Type="nchar" MaxLength="10" />
+          <Property Name="Deliveryfromdate" Type="datetime" />
+          <Property Name="Deliveryterms" Type="nchar" MaxLength="10" />
+          <Property Name="Deliverytodate" Type="datetime" />
+          <Property Name="Duedate" Type="datetime" />
+          <Property Name="Grade" Type="nchar" MaxLength="10" />
+          <Property Name="Invoice" Type="nvarchar" MaxLength="50" />
+          <Property Name="Invoiceaccount" Type="nvarchar" MaxLength="50" />
+          <Property Name="Invoiceamount" Type="float" />
+          <Property Name="Invoicedate" Type="datetime" />
+          <Property Name="Itemnumber" Type="nchar" MaxLength="10" />
+          <Property Name="Name2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Numberofbags" Type="int" />
+          <Property Name="ORIGINVARIETY" Type="nchar" MaxLength="10" />
+          <Property Name="Ordertype" Type="nchar" MaxLength="10" />
+          <Property Name="Oustanding" Type="int" />
+          <Property Name="Payment" Type="nvarchar" MaxLength="50" />
+          <Property Name="Paymentdate" Type="datetime" />
+          <Property Name="Paymentreceived" Type="float" />
+          <Property Name="PortPlaceofdischarge" Type="nchar" MaxLength="10" />
+          <Property Name="PortPlaceofloading" Type="nchar" MaxLength="10" />
+          <Property Name="Price" Type="float" />
+          <Property Name="Pricetype" Type="nchar" MaxLength="10" />
+          <Property Name="Referencenumber" Type="nchar" MaxLength="10" />
+          <Property Name="SalesPurchaseorder" Type="nchar" MaxLength="10" />
+          <Property Name="Shippedquantity" Type="float" />
+          <Property Name="Site" Type="nchar" MaxLength="10" />
+          <Property Name="Status" Type="nchar" MaxLength="10" />
+          <Property Name="Unit" Type="nchar" MaxLength="10" />
+          <Property Name="WareHouse" Type="nchar" MaxLength="10" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'Worx_ELogistics.dbo.Wrx_SalesContract' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Wrx_SalesContract">
           <Key>
