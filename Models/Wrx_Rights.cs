@@ -12,14 +12,21 @@ namespace WorxLogisticsAPIs.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Wrx_Grade
+    public partial class Wrx_Rights
     {
-        public long id { get; set; }
-        public string Code { get; set; }
-        public string Grade { get; set; }
-        public Nullable<long> createdby { get; set; }
+        public Nullable<int> RoleID { get; set; }
+        public string ScopeLevel { get; set; }
+        public Nullable<bool> Access { get; set; }
+        public Nullable<bool> AddRight { get; set; }
+        public Nullable<bool> ReadRight { get; set; }
+        public Nullable<bool> EditRight { get; set; }
+        public Nullable<bool> DeleteRight { get; set; }
+        public int id { get; set; }
         public Nullable<System.DateTime> createdon { get; set; }
-        public Nullable<long> modifiedby { get; set; }
         public Nullable<System.DateTime> modifiedon { get; set; }
+        public Nullable<long> createdby { get; set; }
+        public Nullable<long> modifiedby { get; set; }
+    
+        public virtual Wrx_Roles Wrx_Roles { get; set; }
     }
 }

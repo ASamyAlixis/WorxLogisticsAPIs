@@ -25,32 +25,53 @@ namespace WorxLogisticsAPIs.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Wrx_BatchContract> Wrx_BatchContract { get; set; }
         public virtual DbSet<Wrx_Commodity> Wrx_Commodity { get; set; }
+        public virtual DbSet<Wrx_Company> Wrx_Company { get; set; }
         public virtual DbSet<Wrx_Containers> Wrx_Containers { get; set; }
         public virtual DbSet<Wrx_ContainerTypes> Wrx_ContainerTypes { get; set; }
         public virtual DbSet<Wrx_Continents> Wrx_Continents { get; set; }
         public virtual DbSet<Wrx_Countries> Wrx_Countries { get; set; }
         public virtual DbSet<Wrx_CropYear> Wrx_CropYear { get; set; }
+        public virtual DbSet<Wrx_Currencies> Wrx_Currencies { get; set; }
         public virtual DbSet<Wrx_Customers> Wrx_Customers { get; set; }
         public virtual DbSet<Wrx_Destination> Wrx_Destination { get; set; }
+        public virtual DbSet<Wrx_DischargePorts> Wrx_DischargePorts { get; set; }
         public virtual DbSet<Wrx_DocumentTerms> Wrx_DocumentTerms { get; set; }
         public virtual DbSet<Wrx_DTHC> Wrx_DTHC { get; set; }
         public virtual DbSet<Wrx_FCL> Wrx_FCL { get; set; }
         public virtual DbSet<Wrx_Grade> Wrx_Grade { get; set; }
-        public virtual DbSet<Wrx_Main> Wrx_Main { get; set; }
+        public virtual DbSet<Wrx_ImportPermit> Wrx_ImportPermit { get; set; }
         public virtual DbSet<Wrx_ManyMany> Wrx_ManyMany { get; set; }
         public virtual DbSet<Wrx_Origin> Wrx_Origin { get; set; }
+        public virtual DbSet<Wrx_Plants> Wrx_Plants { get; set; }
         public virtual DbSet<Wrx_Ports> Wrx_Ports { get; set; }
+        public virtual DbSet<Wrx_ProdInstruct> Wrx_ProdInstruct { get; set; }
+        public virtual DbSet<Wrx_PurchaseContractsMaster> Wrx_PurchaseContractsMaster { get; set; }
+        public virtual DbSet<Wrx_RailCarsTypes> Wrx_RailCarsTypes { get; set; }
+        public virtual DbSet<Wrx_RawDataTrans> Wrx_RawDataTrans { get; set; }
+        public virtual DbSet<Wrx_Rights> Wrx_Rights { get; set; }
+        public virtual DbSet<Wrx_Roles> Wrx_Roles { get; set; }
+        public virtual DbSet<Wrx_SalesContractMaster> Wrx_SalesContractMaster { get; set; }
+        public virtual DbSet<Wrx_SalesContracts> Wrx_SalesContracts { get; set; }
         public virtual DbSet<Wrx_SecurityLevel> Wrx_SecurityLevel { get; set; }
         public virtual DbSet<Wrx_SendingBank> Wrx_SendingBank { get; set; }
         public virtual DbSet<Wrx_ServcieType> Wrx_ServcieType { get; set; }
+        public virtual DbSet<Wrx_ShipBooking> Wrx_ShipBooking { get; set; }
+        public virtual DbSet<Wrx_ShipInstruct> Wrx_ShipInstruct { get; set; }
+        public virtual DbSet<Wrx_ShippingLines> Wrx_ShippingLines { get; set; }
         public virtual DbSet<Wrx_Teams> Wrx_Teams { get; set; }
         public virtual DbSet<Wrx_Transloaders> Wrx_Transloaders { get; set; }
         public virtual DbSet<Wrx_Units> Wrx_Units { get; set; }
         public virtual DbSet<Wrx_User> Wrx_User { get; set; }
-        public virtual DbSet<Wrx_Company> Wrx_Company { get; set; }
         public virtual DbSet<Wrx_DocumentationTracking> Wrx_DocumentationTracking { get; set; }
         public virtual DbSet<Wrx_RailCars> Wrx_RailCars { get; set; }
-        public virtual DbSet<Wrx_SalesContract> Wrx_SalesContract { get; set; }
+        public virtual DbSet<Wrx_GrainCalendar> Wrx_GrainCalendar { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<Wrx_Packages> Wrx_Packages { get; set; }
+        public virtual DbSet<Wrx_Pkagetypes> Wrx_Pkagetypes { get; set; }
+        public virtual DbSet<Wrx_RailCarMap> Wrx_RailCarMap { get; set; }
+        public virtual DbSet<NotesAndAttachement> NotesAndAttachements { get; set; }
     }
 }

@@ -98,6 +98,6 @@ namespace WorxLogisticsAPIs.Models
         public Nullable<System.DateTime> ImportDate { get; set; }
         public byte[] SSMA_TimeStamp { get; set; }
     
-        public virtual Wrx_Main Wrx_Main { get; set; }
+        public virtual Wrx_PurchaseContractsMaster Wrx_PurchaseContractsMaster { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace WorxLogisticsAPIs.Models
     
     public partial class Wrx_ServcieType
     {
-        public string SrvID { get; set; }
+        public long id { get; set; }
         public string SrvName { get; set; }
     }
 }

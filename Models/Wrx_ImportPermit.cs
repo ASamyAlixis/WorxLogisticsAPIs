@@ -12,11 +12,14 @@ namespace WorxLogisticsAPIs.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Wrx_Grade
+    public partial class Wrx_ImportPermit
     {
         public long id { get; set; }
-        public string Code { get; set; }
-        public string Grade { get; set; }
+        public string importno { get; set; }
+        public Nullable<double> importquantity { get; set; }
+        public Nullable<System.DateTime> importdate { get; set; }
+        public Nullable<System.DateTime> importexpiry { get; set; }
+        public Nullable<long> splitno { get; set; }
         public Nullable<long> createdby { get; set; }
         public Nullable<System.DateTime> createdon { get; set; }
         public Nullable<long> modifiedby { get; set; }

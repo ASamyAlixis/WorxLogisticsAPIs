@@ -14,12 +14,14 @@ namespace WorxLogisticsAPIs.Models
     
     public partial class Wrx_Commodity
     {
-        public string id { get; set; }
-        public string Code { get; set; }
+        public string image { get; set; }
+        public long id { get; set; }
         public string Name { get; set; }
         public string Botanical { get; set; }
-        public string Levy { get; set; }
         public Nullable<bool> status { get; set; }
-        public string image { get; set; }
+        public Nullable<long> createdby { get; set; }
+        public Nullable<System.DateTime> createdon { get; set; }
+        public Nullable<long> modifiedby { get; set; }
+        public Nullable<System.DateTime> modifiedon { get; set; }
     }
 }

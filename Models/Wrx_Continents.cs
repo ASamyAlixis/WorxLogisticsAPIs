@@ -14,17 +14,12 @@ namespace WorxLogisticsAPIs.Models
     
     public partial class Wrx_Continents
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Wrx_Continents()
-        {
-            this.Wrx_Countries = new HashSet<Wrx_Countries>();
-        }
-    
-        public string ID { get; set; }
+        public long id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Wrx_Countries> Wrx_Countries { get; set; }
+        public Nullable<long> createdby { get; set; }
+        public Nullable<System.DateTime> createdon { get; set; }
+        public Nullable<long> modifiedby { get; set; }
+        public Nullable<System.DateTime> modifiedon { get; set; }
     }
 }

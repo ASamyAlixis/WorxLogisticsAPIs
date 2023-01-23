@@ -12,13 +12,25 @@ namespace WorxLogisticsAPIs.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Wrx_RailCars
+    public partial class Wrx_ProdInstruct
     {
-        public string Number { get; set; }
-        public int id { get; set; }
+        public long id { get; set; }
+        public Nullable<long> Plant { get; set; }
+        public Nullable<int> UnitType { get; set; }
+        public Nullable<int> UnitNum { get; set; }
+        public Nullable<int> BagsNum { get; set; }
+        public Nullable<int> UnitMesure { get; set; }
+        public Nullable<double> TotalMT { get; set; }
+        public string CFIA { get; set; }
+        public string SGS { get; set; }
+        public string Tags { get; set; }
+        public string Crop { get; set; }
+        public string Loadinstructions { get; set; }
+        public Nullable<double> PlanBal { get; set; }
         public Nullable<int> createdby { get; set; }
         public Nullable<System.DateTime> createdon { get; set; }
         public Nullable<int> modifiedby { get; set; }
         public Nullable<System.DateTime> modifiedon { get; set; }
+        public Nullable<int> Gw { get; set; }
     }
 }

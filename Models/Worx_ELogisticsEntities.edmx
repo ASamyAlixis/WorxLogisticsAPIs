@@ -1,0 +1,2719 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Worx_ELogisticsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustNumber" />
+          </Key>
+          <Property Name="CustName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CustNumber" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="255" />
+          <Property Name="TeleFax" Type="nvarchar" MaxLength="255" />
+          <Property Name="Currency" Type="nvarchar" MaxLength="255" />
+          <Property Name="Location" Type="nvarchar" MaxLength="255" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="NotesAndAttachements">
+          <Key>
+            <PropertyRef Name="NotesID" />
+          </Key>
+          <Property Name="NotesID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="100" />
+          <Property Name="EntityID" Type="nvarchar" MaxLength="50" />
+          <Property Name="MimeType" Type="nvarchar" MaxLength="50" />
+          <Property Name="Base64File" Type="varchar(max)" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Notes" Type="ntext" />
+          <Property Name="OwnerId" Type="nvarchar" MaxLength="50" />
+          <Property Name="OwnerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CratedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Wrx_BatchContract">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SplitNo" Type="nchar" MaxLength="15" />
+          <Property Name="Bookingid" Type="bigint" />
+          <Property Name="prodinstructid" Type="bigint" />
+          <Property Name="Shipinstruct" Type="bigint" />
+          <Property Name="CalcQuantity" Type="bigint" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="modifiedby" Type="bigint" />
+          <Property Name="modifiedon" Type="datetime" />
+          <Property Name="Contractid" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Wrx_Commodity">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="image" Type="nvarchar" MaxLength="255" />
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Botanical" Type="nvarchar" MaxLength="255" />
+          <Property Name="status" Type="bit" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="createdon" Type="date" />
+          <Property Name="modifiedby" Type="bigint" />
+          <Property Name="modifiedon" Type="date" />
+        </EntityType>
+        <EntityType Name="Wrx_Company">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Shipper" Type="nvarchar" MaxLength="255" />
+          <Property Name="Street" Type="nvarchar" MaxLength="255" />
+          <Property Name="CityCountry" Type="nvarchar" MaxLength="255" />
+          <Property Name="Province" Type="nvarchar" MaxLength="255" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="255" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="255" />
+          <Property Name="Website" Type="nvarchar" MaxLength="255" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="modifiedby" Type="bigint" />
+          <Property Name="modifiedon" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Wrx_Containers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoadingDate" Type="datetime2" Precision="0" />
+          <Property Name="RailCar" Type="int" />
+          <Property Name="BookingNum" Type="nvarchar" MaxLength="255" />
+          <Property Name="LoadOrderNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="ContainerNum" Type="nvarchar" MaxLength="255" />
+          <Property Name="NumOfPackages" Type="nvarchar" MaxLength="255" />
+          <Property Name="SealNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="UnloadWeight" Type="float" Nullable="false" />
+          <Property Name="BagWeight" Type="float" Nullable="false" />
+          <Property Name="TransferOrderNum" Type="nvarchar" MaxLength="255" />
+          <Property Name="ContractBarNumber" Type="int" Nullable="false" />
+          <Property Name="VGM" Type="float" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="modifiedby" Type="bigint" />
+          <Property Name="modifiedon" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Wrx_ContainerTypes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="VolumeFrom" Type="int" />
+          <Property Name="VolumeTo" Type="nchar" MaxLength="10" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="modifiedby" Type="bigint" />
+          <Property Name="modifiedon" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Wrx_Continents">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="10" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="modifiedby" Type="bigint" />
+          <Property Name="modifiedon" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Wrx_Countries">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="Image" Type="nvarchar" MaxLength="50" />
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Continent" Type="nchar" MaxLength="5" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="modifiedby" Type="bigint" />
+          <Property Name="modifiedon" Type="datetime" />
+          <Property Name="status" Type="bit" />
+        </EntityType>
+        <EntityType Name="Wrx_CropYear">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CropYear" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Wrx_Currencies">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CurrencyName" Type="nvarchar" MaxLength="50" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="modifiedby" Type="bigint" />
+          <Property Name="modifiedon" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Wrx_Customers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CustNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="255" />
+          <Property Name="TeleFax" Type="nvarchar" MaxLength="255" />
+          <Property Name="Currency" Type="nvarchar" MaxLength="255" />
+          <Property Name="Location" Type="nvarchar" MaxLength="255" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="modifiedby" Type="bigint" />
+          <Property Name="modifiedon" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Wrx_Destination">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Destination" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="Contact" Type="nvarchar" MaxLength="255" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="modifiedby" Type="bigint" />
+          <Property Name="modifiedon" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Wrx_DischargePorts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PortName" Type="nvarchar" MaxLength="50" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="modifiedby" Type="bigint" />
+          <Property Name="modifiedon" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Worx_ELogistics.dbo.Wrx_DocumentationTracking' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Wrx_DocumentationTracking">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="SSMA_TimeStamp" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocSpecialist" Type="int" />
+          <Property Name="ContractNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="Bar" Type="int" />
+          <Property Name="DeliveryTerm" Type="nvarchar" MaxLength="255" />
+          <Property Name="DocumentTerm" Type="int" />
+          <Property Name="DTHC" Type="int" />
+          <Property Name="NotifyParty" Type="nvarchar" MaxLength="255" />
+          <Property Name="IECCode" Type="nvarchar" MaxLength="255" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="255" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+          <Property Name="Booking" Type="nvarchar" MaxLength="255" />
+          <Property Name="PortOfLoading" Type="int" />
+          <Property Name="PortOfDestination" Type="nvarchar" MaxLength="255" />
+          <Property Name="CountryOfDestination" Type="nvarchar" MaxLength="255" />
+          <Property Name="SailingDate" Type="datetime2" Precision="0" />
+          <Property Name="ActualSailingDate" Type="datetime2" Precision="0" />
+          <Property Name="OriginalDocDueForSending" Type="datetime2" Precision="0" />
+          <Property Name="ETA" Type="datetime2" Precision="0" />
+          <Property Name="NumOfFCL" Type="int" />
+          <Property Name="ShippmentType" Type="nvarchar" MaxLength="255" />
+          <Property Name="NumOfCars" Type="int" />
+          <Property Name="LotNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="Commodity" Type="nvarchar" MaxLength="255" />
+          <Property Name="Grade" Type="nvarchar" MaxLength="255" />
+          <Property Name="InvoiceQTY" Type="float" />
+          <Property Name="Price/MT" Type="money" />
+          <Property Name="InvoiceAmount" Type="float" />
+          <Property Name="InvoiceAmountInWords" Type="nvarchar" MaxLength="255" />
+          <Property Name="ERPInvoiceNO" Type="nvarchar" MaxLength="255" />
+          <Property Name="B13orAESFilingNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="B13orAESFilingAmount" Type="float" />
+          <Property Name="DescriptionofProduct" Type="nvarchar(max)" />
+          <Property Name="CropYear" Type="int" />
+          <Property Name="ProductionMonth" Type="nvarchar" MaxLength="255" />
+          <Property Name="ProductionYear" Type="int" />
+          <Property Name="BLISentDate" Type="datetime2" Precision="0" />
+          <Property Name="ApropriationDate" Type="datetime2" Precision="0" />
+          <Property Name="BLNO" Type="nvarchar" MaxLength="255" />
+          <Property Name="BLApprovalDate" Type="datetime2" Precision="0" />
+          <Property Name="BLFreightInvoiceReceivedDate" Type="datetime2" Precision="0" />
+          <Property Name="PhytoRequestedDate" Type="datetime2" Precision="0" />
+          <Property Name="PhytoReceivedDate" Type="datetime2" Precision="0" />
+          <Property Name="SGSRequestedDate" Type="datetime2" Precision="0" />
+          <Property Name="SGS Received Date" Type="datetime2" Precision="0" />
+          <Property Name="COOReceiveDate" Type="datetime2" Precision="0" />
+          <Property Name="USPhytoRequestedDate" Type="datetime2" Precision="0" />
+          <Property Name="USPhytoReceivedDate" Type="datetime2" Precision="0" />
+          <Property Name="DateFinaldocsetsent" Type="datetime2" Precision="0" />
+          <Property Name="InhouseFF" Type="bit" />
+          <Property Name="Status" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ToBankBuyer" Type="nvarchar" MaxLength="255" />
+          <Property Name="SendingBank" Type="nvarchar" MaxLength="255" />
+          <Property Name="ReceivingBank" Type="nvarchar" MaxLength="255" />
+          <Property Name="BankReference" Type="nvarchar" MaxLength="255" />
+          <Property Name="Courier" Type="nvarchar" MaxLength="255" />
+          <Property Name="AWBOriginaldocsweresent" Type="nvarchar" MaxLength="255" />
+          <Property Name="Freightinvoice" Type="nvarchar" MaxLength="255" />
+          <Property Name="FreightinvoiceAmount" Type="float" />
+          <Property Name="Vessel" Type="nvarchar" MaxLength="255" />
+          <Property Name="ShippingLine" Type="nvarchar" MaxLength="255" />
+          <Property Name="ContractBar" Type="nvarchar" MaxLength="255" />
+          <Property Name="CompanyID" Type="int" />
+          <Property Name="NumberofDays" Type="int" />
+          <Property Name="ERPInvoiceDate" Type="datetime2" Precision="0" />
+          <Property Name="PaymentRcvdDate" Type="datetime2" Precision="0" />
+          <Property Name="PaymentRcvdAmt" Type="float" />
+          <Property Name="MISC" Type="nvarchar(max)" />
+          <Property Name="NumberofBags" Type="int" />
+          <Property Name="OnBehalfOf" Type="nvarchar" MaxLength="255" />
+          <Property Name="Add1" Type="money" />
+          <Property Name="Add2" Type="money" />
+          <Property Name="Less1" Type="money" />
+          <Property Name="Less2" Type="money" />
+          <Property Name="ConsigneeText" Type="nvarchar" MaxLength="255" />
+          <Property Name="ConsigneeAddress" Type="nvarchar" MaxLength="255" />
+          <Property Name="ConsigneePhone" Type="nvarchar" MaxLength="255" />
+          <Property Name="ConsigneeFax" Type="nvarchar" MaxLength="255" />
+          <Property Name="ConsigneeEmail" Type="nvarchar" MaxLength="255" />
+          <Property Name="PaymTerm" Type="nvarchar" MaxLength="255" />
+          <Property Name="ImportPermit" Type="nvarchar" MaxLength="255" />
+          <Property Name="ImportDate" Type="datetime2" Precision="0" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Wrx_DocumentTerms">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocumentTerms" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Wrx_DTHC">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DTHC" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Wrx_FCL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumOfEcl" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Wrx_Grade">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nchar" MaxLength="10" />
+          <Property Name="Grade" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="modifiedby" Type="bigint" />
+          <Property Name="modifiedon" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Wrx_GrainCalendar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GW" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Wrx_ImportPermit">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="importno" Type="nvarchar" MaxLength="50" />
+          <Property Name="importquantity" Type="float" />
+          <Property Name="importdate" Type="datetime" />
+          <Property Name="importexpiry" Type="datetime" />
+          <Property Name="splitno" Type="bigint" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="modifiedby" Type="bigint" />
+          <Property Name="modifiedon" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Wrx_ManyMany">
+          <Key>
+            <PropertyRef Name="FromID" />
+            <PropertyRef Name="FromType" />
+            <PropertyRef Name="ToID" />
+            <PropertyRef Name="ToType" />
+          </Key>
+          <Property Name="FromID" Type="bigint" Nullable="false" />
+          <Property Name="FromType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ToID" Type="bigint" Nullable="false" />
+          <Property Name="ToType" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Wrx_Origin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Origin" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="OriginLongFormat" Type="nvarchar" MaxLength="255" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="Contact" Type="nvarchar" MaxLength="255" />
+          <Property Name="image" Type="nvarchar" MaxLength="255" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="modifiedby" Type="bigint" />
+          <Property Name="modifiedon" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Wrx_Packages">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bagname" Type="nvarchar" MaxLength="50" />
+          <Property Name="bagtype" Type="bigint" />
+          <Property Name="bagweight" Type="float" />
+          <Property Name="weightunit" Type="bigint" />
+          <Property Name="colour" Type="nvarchar" MaxLength="50" />
+          <Property Name="plain" Type="bit" />
+          <Property Name="Dimensions" Type="nvarchar" MaxLength="50" />
+          <Property Name="MTConversion" Type="bigint" />
+          <Property Name="image" Type="nvarchar" MaxLength="50" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="modifiedby" Type="bigint" />
+          <Property Name="modifiedon" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Wrx_Pkagetypes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pkagetype" Type="nvarchar" MaxLength="50" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="modifiedon" Type="datetime" />
+          <Property Name="modifiedby" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Wrx_Plants">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Plant" Type="nchar" MaxLength="10" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="modifiedby" Type="bigint" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="modifiedon" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Wrx_Ports">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PortName" Type="nvarchar" MaxLength="255" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="modifiedby" Type="bigint" />
+          <Property Name="modifiedon" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Wrx_ProdInstruct">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Plant" Type="bigint" />
+          <Property Name="UnitType" Type="bigint" />
+          <Property Name="UnitNum" Type="bigint" />
+          <Property Name="BagsNum" Type="bigint" />
+          <Property Name="UnitMesure" Type="bigint" />
+          <Property Name="TotalMT" Type="float" />
+          <Property Name="CFIA" Type="nvarchar" MaxLength="50" />
+          <Property Name="SGS" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tags" Type="nvarchar" MaxLength="50" />
+          <Property Name="Crop" Type="nvarchar" MaxLength="50" />
+          <Property Name="Loadinstructions" Type="nvarchar" MaxLength="50" />
+          <Property Name="PlanBal" Type="float" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="modifiedby" Type="bigint" />
+          <Property Name="modifiedon" Type="datetime" />
+          <Property Name="Gw" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Wrx_PurchaseContractsMaster">
+          <Key>
+            <PropertyRef Name="Contractnumber" />
+          </Key>
+          <Property Name="Contract date" Type="datetime2" Precision="0" />
+          <Property Name="Through" Type="nvarchar" MaxLength="255" />
+          <Property Name="Contractnumber" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Termsofpayment" Type="nvarchar" MaxLength="255" />
+          <Property Name="Itemnumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="Quantity" Type="float" />
+          <Property Name="Price" Type="float" />
+          <Property Name="Amount" Type="float" />
+          <Property Name="Portdischarge" Type="nvarchar" MaxLength="255" />
+          <Property Name="Port/Place of loading" Type="nvarchar" MaxLength="255" />
+          <Property Name="Reference number" Type="nvarchar" MaxLength="255" />
+          <Property Name="ORIGIN/VARIETY" Type="nvarchar" MaxLength="255" />
+          <Property Name="Grade" Type="nvarchar" MaxLength="255" />
+          <Property Name="Site" Type="nvarchar" MaxLength="255" />
+          <Property Name="Warehouse" Type="nvarchar" MaxLength="255" />
+          <Property Name="Buyer #" Type="nvarchar" MaxLength="255" />
+          <Property Name="Order type" Type="nvarchar" MaxLength="255" />
+          <Property Name="Delivery from date" Type="datetime2" Precision="0" />
+          <Property Name="Delivery to date" Type="datetime2" Precision="0" />
+          <Property Name="Delivery terms" Type="nvarchar" MaxLength="255" />
+          <Property Name="Unit" Type="nvarchar" MaxLength="255" />
+          <Property Name="Contract quantity" Type="float" />
+          <Property Name="Currency" Type="nvarchar" MaxLength="255" />
+          <Property Name="Payment" Type="nvarchar" MaxLength="255" />
+          <Property Name="Closed" Type="bit" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Wrx_RailCarMap">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RailCarid" Type="bigint" />
+          <Property Name="Pkageid" Type="bigint" />
+          <Property Name="containerid" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tonnage" Type="float" />
+          <Property Name="sealno" Type="float" />
+          <Property Name="bookingid" Type="bigint" />
+          <Property Name="VGM" Type="nchar" MaxLength="10" />
+          <Property Name="Shipdate" Type="datetime" />
+          <Property Name="Expiredate" Type="datetime" />
+          <Property Name="balancetomap" Type="float" />
+          <Property Name="Splitno" Type="bigint" />
+          <Property Name="contractid" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Wrx_RailCars">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="255" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="modifiedby" Type="bigint" />
+          <Property Name="modifiedon" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Wrx_RailCarsTypes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="VolumeFrom" Type="int" />
+          <Property Name="VolumeTo" Type="int" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="modifiedby" Type="bigint" />
+          <Property Name="modifiedon" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Wrx_RawDataTrans">
+          <Key>
+            <PropertyRef Name="ConID" />
+          </Key>
+          <Property Name="ConID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Buyer" Type="nvarchar" MaxLength="50" />
+          <Property Name="Configuration" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contractdate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contractnumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Quantity" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contractstatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="Currency" Type="nvarchar" MaxLength="50" />
+          <Property Name="Deliveryfromdate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Deliveryterms" Type="nvarchar" MaxLength="50" />
+          <Property Name="Deliverytodate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Duedate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Grade" Type="nvarchar" MaxLength="50" />
+          <Property Name="Itemnumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="CmpName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Numberofbags" Type="nvarchar" MaxLength="50" />
+          <Property Name="ORIGINVARIETY" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ordertype" Type="nvarchar" MaxLength="50" />
+          <Property Name="Payment" Type="nvarchar" MaxLength="50" />
+          <Property Name="Paymentdate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Portdischarge" Type="nvarchar" MaxLength="50" />
+          <Property Name="Portofloading" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="nvarchar" MaxLength="50" />
+          <Property Name="Site" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="Unit" Type="nvarchar" MaxLength="50" />
+          <Property Name="WareHouse" Type="nvarchar" MaxLength="50" />
+          <Property Name="createdby" Type="date" />
+          <Property Name="createdon" Type="date" />
+          <Property Name="modifiedby" Type="date" />
+          <Property Name="modifiedon" Type="date" />
+          <Property Name="ownedon" Type="datetime" />
+          <Property Name="ownedby" Type="datetime" />
+          <Property Name="Termsofpayment" Type="nvarchar" MaxLength="50" />
+          <Property Name="Amount" Type="nvarchar" MaxLength="50" />
+          <Property Name="Referencenumber" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Wrx_Rights">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="RoleID" Type="int" />
+          <Property Name="ScopeLevel" Type="nvarchar" MaxLength="50" />
+          <Property Name="Access" Type="bit" />
+          <Property Name="AddRight" Type="bit" />
+          <Property Name="ReadRight" Type="bit" />
+          <Property Name="EditRight" Type="bit" />
+          <Property Name="DeleteRight" Type="bit" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="modifiedon" Type="date" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="modifiedby" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Wrx_Roles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="modifiedon" Type="datetime" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="modifiedby" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Wrx_SalesContractMaster">
+          <Key>
+            <PropertyRef Name="Contractnumber" />
+          </Key>
+          <Property Name="Contractdate" Type="datetime2" Precision="0" />
+          <Property Name="Contractnumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CmpName" Type="nvarchar" MaxLength="255" />
+          <Property Name="Termsofpayment" Type="nvarchar" MaxLength="255" />
+          <Property Name="Itemnumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="Quantity" Type="float" />
+          <Property Name="Price" Type="float" />
+          <Property Name="Amount" Type="float" />
+          <Property Name="Portdischarge" Type="nvarchar" MaxLength="255" />
+          <Property Name="ORIGINVARIETY" Type="nvarchar" MaxLength="255" />
+          <Property Name="Grade" Type="nvarchar" MaxLength="255" />
+          <Property Name="Site" Type="nvarchar" MaxLength="255" />
+          <Property Name="Warehouse" Type="nvarchar" MaxLength="255" />
+          <Property Name="Buyer" Type="nvarchar" MaxLength="255" />
+          <Property Name="Ordertype" Type="nvarchar" MaxLength="255" />
+          <Property Name="Deliveryfromdate" Type="datetime2" Precision="0" />
+          <Property Name="Deliverytodate" Type="datetime2" Precision="0" />
+          <Property Name="Deliveryterms" Type="nvarchar" MaxLength="255" />
+          <Property Name="Unit" Type="nvarchar" MaxLength="255" />
+          <Property Name="Currency" Type="nvarchar" MaxLength="255" />
+          <Property Name="Payment" Type="nvarchar(max)" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="modifiedby" Type="bigint" />
+          <Property Name="modifiedon" Type="datetime" />
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Wrx_SalesContracts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Contractdate" Type="date" />
+          <Property Name="Contractnumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Customerid" Type="bigint" />
+          <Property Name="Termsofpayment" Type="nvarchar" MaxLength="255" />
+          <Property Name="Commodityid" Type="bigint" />
+          <Property Name="Quantity" Type="float" />
+          <Property Name="Price" Type="float" />
+          <Property Name="Amount" Type="float" />
+          <Property Name="Portdischargeid" Type="bigint" />
+          <Property Name="Originid" Type="bigint" />
+          <Property Name="Gradeid" Type="bigint" />
+          <Property Name="Site" Type="nvarchar" MaxLength="255" />
+          <Property Name="Warehouse" Type="nvarchar" MaxLength="255" />
+          <Property Name="Buyer" Type="nvarchar" MaxLength="255" />
+          <Property Name="Ordertype" Type="nvarchar" MaxLength="255" />
+          <Property Name="Deliveryfromdate" Type="datetime2" Precision="0" />
+          <Property Name="Deliverytodate" Type="datetime2" Precision="0" />
+          <Property Name="Deliveryterms" Type="nvarchar" MaxLength="255" />
+          <Property Name="Unitid" Type="bigint" />
+          <Property Name="Currencyid" Type="bigint" />
+          <Property Name="Payment" Type="nvarchar(max)" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="modifiedby" Type="bigint" />
+          <Property Name="modifiedon" Type="datetime" />
+          <Property Name="Ownerid" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Wrx_SecurityLevel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Level" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Wrx_SendingBank">
+          <Key>
+            <PropertyRef Name="SendingBank" />
+          </Key>
+          <Property Name="SendingBank" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Wrx_ServcieType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SrvName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Wrx_ShipBooking">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BookingRef" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShippingLine" Type="nchar" MaxLength="10" />
+          <Property Name="FCLNum" Type="nchar" MaxLength="10" />
+          <Property Name="DoxCutoff" Type="datetime" />
+          <Property Name="VGMCutoff" Type="datetime" />
+          <Property Name="LRD" Type="datetime" />
+          <Property Name="ETS" Type="datetime" />
+          <Property Name="ETA" Type="datetime" />
+          <Property Name="VesselName" Type="nchar" MaxLength="10" />
+          <Property Name="VoyageNum" Type="nchar" MaxLength="10" />
+          <Property Name="ERD" Type="datetime" />
+          <Property Name="SplitNum" Type="nchar" MaxLength="10" />
+          <Property Name="modifiedby" Type="bigint" />
+          <Property Name="modifiedon" Type="datetime" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="createdon" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Wrx_ShipInstruct">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Transloader" Type="bigint" />
+          <Property Name="FCLNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="SrvType" Type="bigint" />
+          <Property Name="UnitNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="BagsNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="MTNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="CFIA" Type="nvarchar" MaxLength="50" />
+          <Property Name="SGS" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tags" Type="nvarchar" MaxLength="50" />
+          <Property Name="LoadInstructions" Type="nvarchar" MaxLength="50" />
+          <Property Name="InstructBal" Type="nvarchar" MaxLength="50" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="modifiedon" Type="datetime" />
+          <Property Name="modifiedby" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Wrx_ShippingLines">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="LineName" Type="nvarchar" MaxLength="255" />
+          <Property Name="Abbreviation" Type="nvarchar" MaxLength="255" />
+          <Property Name="Carrier" Type="float" />
+          <Property Name="LOGO" Type="nvarchar" MaxLength="255" />
+          <Property Name="Active" Type="nvarchar" MaxLength="255" />
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Wrx_Teams">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="modifiedby" Type="bigint" />
+          <Property Name="modifiedon" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Wrx_Transloaders">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="TransID" Type="nchar" MaxLength="15" Nullable="false" />
+          <Property Name="TransName" Type="nvarchar" MaxLength="50" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="modifiedby" Type="bigint" />
+          <Property Name="modifiedon" Type="datetime" />
+          <Property Name="Logo" Type="nvarchar" MaxLength="50" />
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Wrx_Units">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UnitName" Type="nvarchar" MaxLength="50" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="modifiedby" Type="bigint" />
+          <Property Name="modifiedon" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Wrx_User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Login" Type="nvarchar" MaxLength="255" />
+          <Property Name="Password" Type="nvarchar" MaxLength="255" />
+          <Property Name="Security" Type="int" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="255" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsAdmin" Type="bit" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="modifiedby" Type="bigint" />
+          <Property Name="modifiedon" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_Wrx_Rights_Wrx_Roles">
+          <End Role="Wrx_Roles" Type="Self.Wrx_Roles" Multiplicity="0..1" />
+          <End Role="Wrx_Rights" Type="Self.Wrx_Rights" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wrx_Roles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Wrx_Rights">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tblDocumentationTracking${99F7002C-D1EF-4964-96C8-331E3EA86946}">
+          <End Role="Wrx_PurchaseContractsMaster" Type="Self.Wrx_PurchaseContractsMaster" Multiplicity="0..1" />
+          <End Role="Wrx_DocumentationTracking" Type="Self.Wrx_DocumentationTracking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wrx_PurchaseContractsMaster">
+              <PropertyRef Name="Contractnumber" />
+            </Principal>
+            <Dependent Role="Wrx_DocumentationTracking">
+              <PropertyRef Name="ContractNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Worx_ELogisticsModelStoreContainer">
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NotesAndAttachements" EntityType="Self.NotesAndAttachements" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_BatchContract" EntityType="Self.Wrx_BatchContract" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_Commodity" EntityType="Self.Wrx_Commodity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_Company" EntityType="Self.Wrx_Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_Containers" EntityType="Self.Wrx_Containers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_ContainerTypes" EntityType="Self.Wrx_ContainerTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_Continents" EntityType="Self.Wrx_Continents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_Countries" EntityType="Self.Wrx_Countries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_CropYear" EntityType="Self.Wrx_CropYear" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_Currencies" EntityType="Self.Wrx_Currencies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_Customers" EntityType="Self.Wrx_Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_Destination" EntityType="Self.Wrx_Destination" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_DischargePorts" EntityType="Self.Wrx_DischargePorts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_DocumentTerms" EntityType="Self.Wrx_DocumentTerms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_DTHC" EntityType="Self.Wrx_DTHC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_FCL" EntityType="Self.Wrx_FCL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_Grade" EntityType="Self.Wrx_Grade" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_GrainCalendar" EntityType="Self.Wrx_GrainCalendar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_ImportPermit" EntityType="Self.Wrx_ImportPermit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_ManyMany" EntityType="Self.Wrx_ManyMany" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_Origin" EntityType="Self.Wrx_Origin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_Packages" EntityType="Self.Wrx_Packages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_Pkagetypes" EntityType="Self.Wrx_Pkagetypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_Plants" EntityType="Self.Wrx_Plants" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_Ports" EntityType="Self.Wrx_Ports" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_ProdInstruct" EntityType="Self.Wrx_ProdInstruct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_PurchaseContractsMaster" EntityType="Self.Wrx_PurchaseContractsMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_RailCarMap" EntityType="Self.Wrx_RailCarMap" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_RailCars" EntityType="Self.Wrx_RailCars" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_RailCarsTypes" EntityType="Self.Wrx_RailCarsTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_RawDataTrans" EntityType="Self.Wrx_RawDataTrans" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_Rights" EntityType="Self.Wrx_Rights" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_Roles" EntityType="Self.Wrx_Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_SalesContractMaster" EntityType="Self.Wrx_SalesContractMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_SalesContracts" EntityType="Self.Wrx_SalesContracts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_SecurityLevel" EntityType="Self.Wrx_SecurityLevel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_SendingBank" EntityType="Self.Wrx_SendingBank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_ServcieType" EntityType="Self.Wrx_ServcieType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_ShipBooking" EntityType="Self.Wrx_ShipBooking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_ShipInstruct" EntityType="Self.Wrx_ShipInstruct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_ShippingLines" EntityType="Self.Wrx_ShippingLines" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_Teams" EntityType="Self.Wrx_Teams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_Transloaders" EntityType="Self.Wrx_Transloaders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_Units" EntityType="Self.Wrx_Units" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_User" EntityType="Self.Wrx_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_DocumentationTracking" EntityType="Self.Wrx_DocumentationTracking" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Wrx_DocumentationTracking].[ID] AS [ID], 
+    [Wrx_DocumentationTracking].[DocSpecialist] AS [DocSpecialist], 
+    [Wrx_DocumentationTracking].[ContractNumber] AS [ContractNumber], 
+    [Wrx_DocumentationTracking].[Bar] AS [Bar], 
+    [Wrx_DocumentationTracking].[DeliveryTerm] AS [DeliveryTerm], 
+    [Wrx_DocumentationTracking].[DocumentTerm] AS [DocumentTerm], 
+    [Wrx_DocumentationTracking].[DTHC] AS [DTHC], 
+    [Wrx_DocumentationTracking].[NotifyParty] AS [NotifyParty], 
+    [Wrx_DocumentationTracking].[IECCode] AS [IECCode], 
+    [Wrx_DocumentationTracking].[CustomerName] AS [CustomerName], 
+    [Wrx_DocumentationTracking].[Comment] AS [Comment], 
+    [Wrx_DocumentationTracking].[Booking] AS [Booking], 
+    [Wrx_DocumentationTracking].[PortOfLoading] AS [PortOfLoading], 
+    [Wrx_DocumentationTracking].[PortOfDestination] AS [PortOfDestination], 
+    [Wrx_DocumentationTracking].[CountryOfDestination] AS [CountryOfDestination], 
+    [Wrx_DocumentationTracking].[SailingDate] AS [SailingDate], 
+    [Wrx_DocumentationTracking].[ActualSailingDate] AS [ActualSailingDate], 
+    [Wrx_DocumentationTracking].[OriginalDocDueForSending] AS [OriginalDocDueForSending], 
+    [Wrx_DocumentationTracking].[ETA] AS [ETA], 
+    [Wrx_DocumentationTracking].[NumOfFCL] AS [NumOfFCL], 
+    [Wrx_DocumentationTracking].[ShippmentType] AS [ShippmentType], 
+    [Wrx_DocumentationTracking].[NumOfCars] AS [NumOfCars], 
+    [Wrx_DocumentationTracking].[LotNumber] AS [LotNumber], 
+    [Wrx_DocumentationTracking].[Commodity] AS [Commodity], 
+    [Wrx_DocumentationTracking].[Grade] AS [Grade], 
+    [Wrx_DocumentationTracking].[InvoiceQTY] AS [InvoiceQTY], 
+    [Wrx_DocumentationTracking].[Price/MT] AS [Price/MT], 
+    [Wrx_DocumentationTracking].[InvoiceAmount] AS [InvoiceAmount], 
+    [Wrx_DocumentationTracking].[InvoiceAmountInWords] AS [InvoiceAmountInWords], 
+    [Wrx_DocumentationTracking].[ERPInvoiceNO] AS [ERPInvoiceNO], 
+    [Wrx_DocumentationTracking].[B13orAESFilingNumber] AS [B13orAESFilingNumber], 
+    [Wrx_DocumentationTracking].[B13orAESFilingAmount] AS [B13orAESFilingAmount], 
+    [Wrx_DocumentationTracking].[DescriptionofProduct] AS [DescriptionofProduct], 
+    [Wrx_DocumentationTracking].[CropYear] AS [CropYear], 
+    [Wrx_DocumentationTracking].[ProductionMonth] AS [ProductionMonth], 
+    [Wrx_DocumentationTracking].[ProductionYear] AS [ProductionYear], 
+    [Wrx_DocumentationTracking].[BLISentDate] AS [BLISentDate], 
+    [Wrx_DocumentationTracking].[ApropriationDate] AS [ApropriationDate], 
+    [Wrx_DocumentationTracking].[BLNO] AS [BLNO], 
+    [Wrx_DocumentationTracking].[BLApprovalDate] AS [BLApprovalDate], 
+    [Wrx_DocumentationTracking].[BLFreightInvoiceReceivedDate] AS [BLFreightInvoiceReceivedDate], 
+    [Wrx_DocumentationTracking].[PhytoRequestedDate] AS [PhytoRequestedDate], 
+    [Wrx_DocumentationTracking].[PhytoReceivedDate] AS [PhytoReceivedDate], 
+    [Wrx_DocumentationTracking].[SGSRequestedDate] AS [SGSRequestedDate], 
+    [Wrx_DocumentationTracking].[SGS Received Date] AS [SGS Received Date], 
+    [Wrx_DocumentationTracking].[COOReceiveDate] AS [COOReceiveDate], 
+    [Wrx_DocumentationTracking].[USPhytoRequestedDate] AS [USPhytoRequestedDate], 
+    [Wrx_DocumentationTracking].[USPhytoReceivedDate] AS [USPhytoReceivedDate], 
+    [Wrx_DocumentationTracking].[DateFinaldocsetsent] AS [DateFinaldocsetsent], 
+    [Wrx_DocumentationTracking].[InhouseFF] AS [InhouseFF], 
+    [Wrx_DocumentationTracking].[Status] AS [Status], 
+    [Wrx_DocumentationTracking].[ToBankBuyer] AS [ToBankBuyer], 
+    [Wrx_DocumentationTracking].[SendingBank] AS [SendingBank], 
+    [Wrx_DocumentationTracking].[ReceivingBank] AS [ReceivingBank], 
+    [Wrx_DocumentationTracking].[BankReference] AS [BankReference], 
+    [Wrx_DocumentationTracking].[Courier] AS [Courier], 
+    [Wrx_DocumentationTracking].[AWBOriginaldocsweresent] AS [AWBOriginaldocsweresent], 
+    [Wrx_DocumentationTracking].[Freightinvoice] AS [Freightinvoice], 
+    [Wrx_DocumentationTracking].[FreightinvoiceAmount] AS [FreightinvoiceAmount], 
+    [Wrx_DocumentationTracking].[Vessel] AS [Vessel], 
+    [Wrx_DocumentationTracking].[ShippingLine] AS [ShippingLine], 
+    [Wrx_DocumentationTracking].[ContractBar] AS [ContractBar], 
+    [Wrx_DocumentationTracking].[CompanyID] AS [CompanyID], 
+    [Wrx_DocumentationTracking].[NumberofDays] AS [NumberofDays], 
+    [Wrx_DocumentationTracking].[ERPInvoiceDate] AS [ERPInvoiceDate], 
+    [Wrx_DocumentationTracking].[PaymentRcvdDate] AS [PaymentRcvdDate], 
+    [Wrx_DocumentationTracking].[PaymentRcvdAmt] AS [PaymentRcvdAmt], 
+    [Wrx_DocumentationTracking].[MISC] AS [MISC], 
+    [Wrx_DocumentationTracking].[NumberofBags] AS [NumberofBags], 
+    [Wrx_DocumentationTracking].[OnBehalfOf] AS [OnBehalfOf], 
+    [Wrx_DocumentationTracking].[Add1] AS [Add1], 
+    [Wrx_DocumentationTracking].[Add2] AS [Add2], 
+    [Wrx_DocumentationTracking].[Less1] AS [Less1], 
+    [Wrx_DocumentationTracking].[Less2] AS [Less2], 
+    [Wrx_DocumentationTracking].[ConsigneeText] AS [ConsigneeText], 
+    [Wrx_DocumentationTracking].[ConsigneeAddress] AS [ConsigneeAddress], 
+    [Wrx_DocumentationTracking].[ConsigneePhone] AS [ConsigneePhone], 
+    [Wrx_DocumentationTracking].[ConsigneeFax] AS [ConsigneeFax], 
+    [Wrx_DocumentationTracking].[ConsigneeEmail] AS [ConsigneeEmail], 
+    [Wrx_DocumentationTracking].[PaymTerm] AS [PaymTerm], 
+    [Wrx_DocumentationTracking].[ImportPermit] AS [ImportPermit], 
+    [Wrx_DocumentationTracking].[ImportDate] AS [ImportDate], 
+    [Wrx_DocumentationTracking].[SSMA_TimeStamp] AS [SSMA_TimeStamp]
+    FROM [dbo].[Wrx_DocumentationTracking] AS [Wrx_DocumentationTracking]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Wrx_Rights_Wrx_Roles" Association="Self.FK_Wrx_Rights_Wrx_Roles">
+            <End Role="Wrx_Roles" EntitySet="Wrx_Roles" />
+            <End Role="Wrx_Rights" EntitySet="Wrx_Rights" />
+          </AssociationSet>
+          <AssociationSet Name="tblDocumentationTracking${99F7002C-D1EF-4964-96C8-331E3EA86946}" Association="Self.tblDocumentationTracking${99F7002C-D1EF-4964-96C8-331E3EA86946}">
+            <End Role="Wrx_PurchaseContractsMaster" EntitySet="Wrx_PurchaseContractsMaster" />
+            <End Role="Wrx_DocumentationTracking" EntitySet="Wrx_DocumentationTracking" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Worx_ELogisticsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustNumber" />
+          </Key>
+          <Property Name="CustName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TeleFax" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Currency" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Wrx_BatchContract">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SplitNo" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="Bookingid" Type="Int64" />
+          <Property Name="prodinstructid" Type="Int64" />
+          <Property Name="Shipinstruct" Type="Int64" />
+          <Property Name="CalcQuantity" Type="Int64" />
+          <Property Name="createdby" Type="Int32" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int32" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+          <Property Name="Contractid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Wrx_Commodity">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Botanical" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="Boolean" />
+          <Property Name="createdby" Type="Int64" />
+          <Property Name="createdon" Type="DateTime" Precision="0" />
+          <Property Name="modifiedby" Type="Int64" />
+          <Property Name="modifiedon" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Wrx_Company">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Shipper" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Street" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CityCountry" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Province" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Website" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="createdby" Type="Int32" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int32" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Wrx_Containers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoadingDate" Type="DateTime" Precision="0" />
+          <Property Name="RailCar" Type="Int32" />
+          <Property Name="BookingNum" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LoadOrderNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ContainerNum" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NumOfPackages" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SealNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="UnloadWeight" Type="Double" Nullable="false" />
+          <Property Name="BagWeight" Type="Double" Nullable="false" />
+          <Property Name="TransferOrderNum" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ContractBarNumber" Type="Int32" Nullable="false" />
+          <Property Name="VGM" Type="Double" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="createdby" Type="Int64" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int64" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Wrx_ContainerTypes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VolumeFrom" Type="Int32" />
+          <Property Name="VolumeTo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="createdby" Type="Int64" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int64" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Wrx_Continents">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="createdby" Type="Int64" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int64" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Wrx_Countries">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Continent" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+          <Property Name="createdby" Type="Int64" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int64" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Wrx_CropYear">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CropYear" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Wrx_Currencies">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CurrencyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="createdby" Type="Int64" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int64" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Wrx_Customers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TeleFax" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Currency" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="createdby" Type="Int64" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int64" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Wrx_Destination">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Destination" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Contact" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="createdby" Type="Int64" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int64" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Wrx_DischargePorts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="createdby" Type="Int64" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int64" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Wrx_DocumentTerms">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocumentTerms" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Wrx_DTHC">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DTHC" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Wrx_FCL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumOfEcl" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Wrx_Grade">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Grade" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="createdby" Type="Int64" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int64" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Wrx_ImportPermit">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="importno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="importquantity" Type="Double" />
+          <Property Name="importdate" Type="DateTime" Precision="3" />
+          <Property Name="importexpiry" Type="DateTime" Precision="3" />
+          <Property Name="splitno" Type="Int64" />
+          <Property Name="createdby" Type="Int64" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int64" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Wrx_ManyMany">
+          <Key>
+            <PropertyRef Name="FromID" />
+            <PropertyRef Name="FromType" />
+            <PropertyRef Name="ToID" />
+            <PropertyRef Name="ToType" />
+          </Key>
+          <Property Name="FromID" Type="Int64" Nullable="false" />
+          <Property Name="FromType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ToID" Type="Int64" Nullable="false" />
+          <Property Name="ToType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Wrx_Origin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Origin" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OriginLongFormat" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Contact" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="image" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="createdby" Type="Int64" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int64" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Wrx_Plants">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Plant" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="createdby" Type="Int64" />
+          <Property Name="modifiedby" Type="Int64" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Wrx_Ports">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PortName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="createdby" Type="Int64" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int64" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Wrx_ProdInstruct">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Plant" Type="Int64" />
+          <Property Name="UnitType" Type="Int32" />
+          <Property Name="UnitNum" Type="Int32" />
+          <Property Name="BagsNum" Type="Int32" />
+          <Property Name="UnitMesure" Type="Int32" />
+          <Property Name="TotalMT" Type="Double" />
+          <Property Name="CFIA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SGS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tags" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Crop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Loadinstructions" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PlanBal" Type="Double" />
+          <Property Name="createdby" Type="Int32" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int32" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+          <Property Name="Gw" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Wrx_PurchaseContractsMaster">
+          <Key>
+            <PropertyRef Name="Contractnumber" />
+          </Key>
+          <Property Name="Contract_date" Type="DateTime" Precision="0" />
+          <Property Name="Through" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Contractnumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Termsofpayment" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Itemnumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="Double" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="Amount" Type="Double" />
+          <Property Name="Portdischarge" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Port_Place_of_loading" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Reference_number" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ORIGIN_VARIETY" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Grade" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Site" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Warehouse" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Buyer__" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Order_type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Delivery_from_date" Type="DateTime" Precision="0" />
+          <Property Name="Delivery_to_date" Type="DateTime" Precision="0" />
+          <Property Name="Delivery_terms" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Unit" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Contract_quantity" Type="Double" />
+          <Property Name="Currency" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Payment" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Closed" Type="Boolean" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Wrx_DocumentationTracking" Relationship="Self.tblDocumentationTracking__99F7002C_D1EF_4964_96C8_331E3EA86946_" FromRole="Wrx_PurchaseContractsMaster" ToRole="Wrx_DocumentationTracking" />
+        </EntityType>
+        <EntityType Name="Wrx_RailCarsTypes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VolumeFrom" Type="Int32" />
+          <Property Name="VolumeTo" Type="Int32" />
+          <Property Name="createdby" Type="Int32" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int32" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Wrx_RawDataTrans">
+          <Key>
+            <PropertyRef Name="ConID" />
+          </Key>
+          <Property Name="ConID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Buyer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Configuration" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contractdate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contractnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contractstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Deliveryfromdate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Deliveryterms" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Deliverytodate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Duedate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Itemnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CmpName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Numberofbags" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ORIGINVARIETY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ordertype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Payment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Paymentdate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Portdischarge" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Portofloading" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Site" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WareHouse" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="createdby" Type="DateTime" Precision="0" />
+          <Property Name="createdon" Type="DateTime" Precision="0" />
+          <Property Name="modifiedby" Type="DateTime" Precision="0" />
+          <Property Name="modifiedon" Type="DateTime" Precision="0" />
+          <Property Name="ownedon" Type="DateTime" Precision="3" />
+          <Property Name="ownedby" Type="DateTime" Precision="3" />
+          <Property Name="Termsofpayment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Referencenumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Wrx_Rights">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" />
+          <Property Name="ScopeLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Access" Type="Boolean" />
+          <Property Name="AddRight" Type="Boolean" />
+          <Property Name="ReadRight" Type="Boolean" />
+          <Property Name="EditRight" Type="Boolean" />
+          <Property Name="DeleteRight" Type="Boolean" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedon" Type="DateTime" Precision="0" />
+          <Property Name="createdby" Type="Int64" />
+          <Property Name="modifiedby" Type="Int64" />
+          <NavigationProperty Name="Wrx_Roles" Relationship="Self.FK_Wrx_Rights_Wrx_Roles" FromRole="Wrx_Rights" ToRole="Wrx_Roles" />
+        </EntityType>
+        <EntityType Name="Wrx_Roles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+          <Property Name="createdby" Type="Int64" />
+          <Property Name="modifiedby" Type="Int64" />
+          <NavigationProperty Name="Wrx_Rights" Relationship="Self.FK_Wrx_Rights_Wrx_Roles" FromRole="Wrx_Roles" ToRole="Wrx_Rights" />
+        </EntityType>
+        <EntityType Name="Wrx_SalesContractMaster">
+          <Key>
+            <PropertyRef Name="Contractnumber" />
+          </Key>
+          <Property Name="Contractdate" Type="DateTime" Precision="0" />
+          <Property Name="Contractnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CmpName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Termsofpayment" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Itemnumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="Double" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="Amount" Type="Double" />
+          <Property Name="Portdischarge" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ORIGINVARIETY" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Grade" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Site" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Warehouse" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Buyer" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Ordertype" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Deliveryfromdate" Type="DateTime" Precision="0" />
+          <Property Name="Deliverytodate" Type="DateTime" Precision="0" />
+          <Property Name="Deliveryterms" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Unit" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Currency" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Payment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="createdby" Type="Int64" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int64" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Wrx_SalesContracts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Contractdate" Type="DateTime" Precision="0" />
+          <Property Name="Contractnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Customerid" Type="Int64" />
+          <Property Name="Termsofpayment" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Commodityid" Type="Int64" />
+          <Property Name="Quantity" Type="Double" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="Amount" Type="Double" />
+          <Property Name="Portdischargeid" Type="Int64" />
+          <Property Name="Originid" Type="Int64" />
+          <Property Name="Gradeid" Type="Int64" />
+          <Property Name="Site" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Warehouse" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Buyer" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Ordertype" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Deliveryfromdate" Type="DateTime" Precision="0" />
+          <Property Name="Deliverytodate" Type="DateTime" Precision="0" />
+          <Property Name="Deliveryterms" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Unitid" Type="Int64" />
+          <Property Name="Currencyid" Type="Int64" />
+          <Property Name="Payment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="createdby" Type="Int64" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int64" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+          <Property Name="Ownerid" Type="Int64" />
+        </EntityType>
+        <EntityType Name="Wrx_SecurityLevel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Level" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Wrx_SendingBank">
+          <Key>
+            <PropertyRef Name="SendingBank" />
+          </Key>
+          <Property Name="SendingBank" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Wrx_ServcieType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SrvName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Wrx_ShipBooking">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookingRef" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ShippingLine" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="FCLNum" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DoxCutoff" Type="DateTime" Precision="3" />
+          <Property Name="VGMCutoff" Type="DateTime" Precision="3" />
+          <Property Name="LRD" Type="DateTime" Precision="3" />
+          <Property Name="ETS" Type="DateTime" Precision="3" />
+          <Property Name="ETA" Type="DateTime" Precision="3" />
+          <Property Name="VesselName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="VoyageNum" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ERD" Type="DateTime" Precision="3" />
+          <Property Name="SplitNum" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="modifiedby" Type="Int64" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+          <Property Name="createdby" Type="Int64" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Wrx_ShipInstruct">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Transloader" Type="Int64" />
+          <Property Name="FCLNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SrvType" Type="Int64" />
+          <Property Name="UnitNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BagsNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MTNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CFIA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SGS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tags" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LoadInstructions" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InstructBal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="createdby" Type="Int64" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int64" />
+        </EntityType>
+        <EntityType Name="Wrx_ShippingLines">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="LineName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Abbreviation" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Carrier" Type="Double" />
+          <Property Name="LOGO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Wrx_Teams">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="createdby" Type="Int64" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int64" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Wrx_Transloaders">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="TransID" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="TransName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="createdby" Type="Int64" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int64" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+          <Property Name="Logo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Wrx_Units">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UnitName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="createdby" Type="Int64" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int64" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Wrx_User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Login" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Security" Type="Int32" />
+          <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsAdmin" Type="Boolean" />
+          <Property Name="createdby" Type="Int64" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int64" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Wrx_DocumentationTracking">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="SSMA_TimeStamp" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocSpecialist" Type="Int32" />
+          <Property Name="ContractNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Bar" Type="Int32" />
+          <Property Name="DeliveryTerm" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentTerm" Type="Int32" />
+          <Property Name="DTHC" Type="Int32" />
+          <Property Name="NotifyParty" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IECCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Booking" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PortOfLoading" Type="Int32" />
+          <Property Name="PortOfDestination" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CountryOfDestination" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SailingDate" Type="DateTime" Precision="0" />
+          <Property Name="ActualSailingDate" Type="DateTime" Precision="0" />
+          <Property Name="OriginalDocDueForSending" Type="DateTime" Precision="0" />
+          <Property Name="ETA" Type="DateTime" Precision="0" />
+          <Property Name="NumOfFCL" Type="Int32" />
+          <Property Name="ShippmentType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NumOfCars" Type="Int32" />
+          <Property Name="LotNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Commodity" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Grade" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="InvoiceQTY" Type="Double" />
+          <Property Name="Price_MT" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="InvoiceAmount" Type="Double" />
+          <Property Name="InvoiceAmountInWords" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ERPInvoiceNO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="B13orAESFilingNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="B13orAESFilingAmount" Type="Double" />
+          <Property Name="DescriptionofProduct" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CropYear" Type="Int32" />
+          <Property Name="ProductionMonth" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ProductionYear" Type="Int32" />
+          <Property Name="BLISentDate" Type="DateTime" Precision="0" />
+          <Property Name="ApropriationDate" Type="DateTime" Precision="0" />
+          <Property Name="BLNO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="BLApprovalDate" Type="DateTime" Precision="0" />
+          <Property Name="BLFreightInvoiceReceivedDate" Type="DateTime" Precision="0" />
+          <Property Name="PhytoRequestedDate" Type="DateTime" Precision="0" />
+          <Property Name="PhytoReceivedDate" Type="DateTime" Precision="0" />
+          <Property Name="SGSRequestedDate" Type="DateTime" Precision="0" />
+          <Property Name="SGS_Received_Date" Type="DateTime" Precision="0" />
+          <Property Name="COOReceiveDate" Type="DateTime" Precision="0" />
+          <Property Name="USPhytoRequestedDate" Type="DateTime" Precision="0" />
+          <Property Name="USPhytoReceivedDate" Type="DateTime" Precision="0" />
+          <Property Name="DateFinaldocsetsent" Type="DateTime" Precision="0" />
+          <Property Name="InhouseFF" Type="Boolean" />
+          <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ToBankBuyer" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SendingBank" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ReceivingBank" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="BankReference" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Courier" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="AWBOriginaldocsweresent" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Freightinvoice" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FreightinvoiceAmount" Type="Double" />
+          <Property Name="Vessel" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ShippingLine" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ContractBar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyID" Type="Int32" />
+          <Property Name="NumberofDays" Type="Int32" />
+          <Property Name="ERPInvoiceDate" Type="DateTime" Precision="0" />
+          <Property Name="PaymentRcvdDate" Type="DateTime" Precision="0" />
+          <Property Name="PaymentRcvdAmt" Type="Double" />
+          <Property Name="MISC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NumberofBags" Type="Int32" />
+          <Property Name="OnBehalfOf" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Add1" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Add2" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Less1" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Less2" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ConsigneeText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ConsigneeAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ConsigneePhone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ConsigneeFax" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ConsigneeEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PaymTerm" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ImportPermit" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ImportDate" Type="DateTime" Precision="0" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Wrx_PurchaseContractsMaster" Relationship="Self.tblDocumentationTracking__99F7002C_D1EF_4964_96C8_331E3EA86946_" FromRole="Wrx_DocumentationTracking" ToRole="Wrx_PurchaseContractsMaster" />
+        </EntityType>
+        <EntityType Name="Wrx_RailCars">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="Number" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="createdby" Type="Int32" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int32" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+        </EntityType>
+        <Association Name="tblDocumentationTracking__99F7002C_D1EF_4964_96C8_331E3EA86946_">
+          <End Role="Wrx_PurchaseContractsMaster" Type="Self.Wrx_PurchaseContractsMaster" Multiplicity="0..1" />
+          <End Role="Wrx_DocumentationTracking" Type="Self.Wrx_DocumentationTracking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wrx_PurchaseContractsMaster">
+              <PropertyRef Name="Contractnumber" />
+            </Principal>
+            <Dependent Role="Wrx_DocumentationTracking">
+              <PropertyRef Name="ContractNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Wrx_Rights_Wrx_Roles">
+          <End Role="Wrx_Roles" Type="Self.Wrx_Roles" Multiplicity="0..1" />
+          <End Role="Wrx_Rights" Type="Self.Wrx_Rights" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wrx_Roles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Wrx_Rights">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Worx_ELogisticsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Wrx_BatchContract" EntityType="Self.Wrx_BatchContract" />
+          <EntitySet Name="Wrx_Commodity" EntityType="Self.Wrx_Commodity" />
+          <EntitySet Name="Wrx_Company" EntityType="Self.Wrx_Company" />
+          <EntitySet Name="Wrx_Containers" EntityType="Self.Wrx_Containers" />
+          <EntitySet Name="Wrx_ContainerTypes" EntityType="Self.Wrx_ContainerTypes" />
+          <EntitySet Name="Wrx_Continents" EntityType="Self.Wrx_Continents" />
+          <EntitySet Name="Wrx_Countries" EntityType="Self.Wrx_Countries" />
+          <EntitySet Name="Wrx_CropYear" EntityType="Self.Wrx_CropYear" />
+          <EntitySet Name="Wrx_Currencies" EntityType="Self.Wrx_Currencies" />
+          <EntitySet Name="Wrx_Customers" EntityType="Self.Wrx_Customers" />
+          <EntitySet Name="Wrx_Destination" EntityType="Self.Wrx_Destination" />
+          <EntitySet Name="Wrx_DischargePorts" EntityType="Self.Wrx_DischargePorts" />
+          <EntitySet Name="Wrx_DocumentTerms" EntityType="Self.Wrx_DocumentTerms" />
+          <EntitySet Name="Wrx_DTHC" EntityType="Self.Wrx_DTHC" />
+          <EntitySet Name="Wrx_FCL" EntityType="Self.Wrx_FCL" />
+          <EntitySet Name="Wrx_Grade" EntityType="Self.Wrx_Grade" />
+          <EntitySet Name="Wrx_ImportPermit" EntityType="Self.Wrx_ImportPermit" />
+          <EntitySet Name="Wrx_ManyMany" EntityType="Self.Wrx_ManyMany" />
+          <EntitySet Name="Wrx_Origin" EntityType="Self.Wrx_Origin" />
+          <EntitySet Name="Wrx_Plants" EntityType="Self.Wrx_Plants" />
+          <EntitySet Name="Wrx_Ports" EntityType="Self.Wrx_Ports" />
+          <EntitySet Name="Wrx_ProdInstruct" EntityType="Self.Wrx_ProdInstruct" />
+          <EntitySet Name="Wrx_PurchaseContractsMaster" EntityType="Self.Wrx_PurchaseContractsMaster" />
+          <EntitySet Name="Wrx_RailCarsTypes" EntityType="Self.Wrx_RailCarsTypes" />
+          <EntitySet Name="Wrx_RawDataTrans" EntityType="Self.Wrx_RawDataTrans" />
+          <EntitySet Name="Wrx_Rights" EntityType="Self.Wrx_Rights" />
+          <EntitySet Name="Wrx_Roles" EntityType="Self.Wrx_Roles" />
+          <EntitySet Name="Wrx_SalesContractMaster" EntityType="Self.Wrx_SalesContractMaster" />
+          <EntitySet Name="Wrx_SalesContracts" EntityType="Self.Wrx_SalesContracts" />
+          <EntitySet Name="Wrx_SecurityLevel" EntityType="Self.Wrx_SecurityLevel" />
+          <EntitySet Name="Wrx_SendingBank" EntityType="Self.Wrx_SendingBank" />
+          <EntitySet Name="Wrx_ServcieType" EntityType="Self.Wrx_ServcieType" />
+          <EntitySet Name="Wrx_ShipBooking" EntityType="Self.Wrx_ShipBooking" />
+          <EntitySet Name="Wrx_ShipInstruct" EntityType="Self.Wrx_ShipInstruct" />
+          <EntitySet Name="Wrx_ShippingLines" EntityType="Self.Wrx_ShippingLines" />
+          <EntitySet Name="Wrx_Teams" EntityType="Self.Wrx_Teams" />
+          <EntitySet Name="Wrx_Transloaders" EntityType="Self.Wrx_Transloaders" />
+          <EntitySet Name="Wrx_Units" EntityType="Self.Wrx_Units" />
+          <EntitySet Name="Wrx_User" EntityType="Self.Wrx_User" />
+          <EntitySet Name="Wrx_DocumentationTracking" EntityType="Self.Wrx_DocumentationTracking" />
+          <EntitySet Name="Wrx_RailCars" EntityType="Self.Wrx_RailCars" />
+          <AssociationSet Name="tblDocumentationTracking__99F7002C_D1EF_4964_96C8_331E3EA86946_" Association="Self.tblDocumentationTracking__99F7002C_D1EF_4964_96C8_331E3EA86946_">
+            <End Role="Wrx_PurchaseContractsMaster" EntitySet="Wrx_PurchaseContractsMaster" />
+            <End Role="Wrx_DocumentationTracking" EntitySet="Wrx_DocumentationTracking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Wrx_Rights_Wrx_Roles" Association="Self.FK_Wrx_Rights_Wrx_Roles">
+            <End Role="Wrx_Roles" EntitySet="Wrx_Roles" />
+            <End Role="Wrx_Rights" EntitySet="Wrx_Rights" />
+          </AssociationSet>
+          <EntitySet Name="Wrx_GrainCalendar" EntityType="Worx_ELogisticsModel.Wrx_GrainCalendar" />
+          <EntitySet Name="sysdiagrams" EntityType="Worx_ELogisticsModel.sysdiagram" />
+          <EntitySet Name="Wrx_Packages" EntityType="Worx_ELogisticsModel.Wrx_Packages" />
+          <EntitySet Name="Wrx_Pkagetypes" EntityType="Worx_ELogisticsModel.Wrx_Pkagetypes" />
+          <EntitySet Name="Wrx_RailCarMap" EntityType="Worx_ELogisticsModel.Wrx_RailCarMap" />
+          <EntitySet Name="NotesAndAttachements" EntityType="Worx_ELogisticsModel.NotesAndAttachement" />
+        </EntityContainer>
+        <EntityType Name="Wrx_GrainCalendar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GW" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Wrx_Packages">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bagname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bagtype" Type="Int64" />
+          <Property Name="bagweight" Type="Double" />
+          <Property Name="weightunit" Type="Int64" />
+          <Property Name="colour" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="plain" Type="Boolean" />
+          <Property Name="Dimensions" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MTConversion" Type="Int64" />
+          <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="createdby" Type="Int64" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int64" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Wrx_Pkagetypes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pkagetype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="createdby" Type="Int64" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int64" />
+        </EntityType>
+        <EntityType Name="Wrx_RailCarMap">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RailCarid" Type="Int32" />
+          <Property Name="Pkageid" Type="Int32" />
+          <Property Name="containerid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tonnage" Type="Double" />
+          <Property Name="sealno" Type="Double" />
+          <Property Name="bookingid" Type="Int32" />
+          <Property Name="VGM" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Shipdate" Type="DateTime" Precision="3" />
+          <Property Name="Expiredate" Type="DateTime" Precision="3" />
+          <Property Name="balancetomap" Type="Double" />
+          <Property Name="Splitno" Type="Int32" />
+          <Property Name="contractid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="NotesAndAttachement">
+          <Key>
+            <PropertyRef Name="NotesID" />
+          </Key>
+          <Property Name="NotesID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Subject" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EntityID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MimeType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Base64File" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OwnerId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OwnerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CratedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Worx_ELogisticsModelStoreContainer" CdmEntityContainer="Worx_ELogisticsEntities">
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="CustName" ColumnName="CustName" />
+                <ScalarProperty Name="CustNumber" ColumnName="CustNumber" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="TeleFax" ColumnName="TeleFax" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_BatchContract">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_BatchContract">
+              <MappingFragment StoreEntitySet="Wrx_BatchContract">
+                <ScalarProperty Name="Contractid" ColumnName="Contractid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="SplitNo" ColumnName="SplitNo" />
+                <ScalarProperty Name="Bookingid" ColumnName="Bookingid" />
+                <ScalarProperty Name="prodinstructid" ColumnName="prodinstructid" />
+                <ScalarProperty Name="Shipinstruct" ColumnName="Shipinstruct" />
+                <ScalarProperty Name="CalcQuantity" ColumnName="CalcQuantity" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_Commodity">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_Commodity">
+              <MappingFragment StoreEntitySet="Wrx_Commodity">
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Botanical" ColumnName="Botanical" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_Company">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_Company">
+              <MappingFragment StoreEntitySet="Wrx_Company">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Shipper" ColumnName="Shipper" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="CityCountry" ColumnName="CityCountry" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_Containers">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_Containers">
+              <MappingFragment StoreEntitySet="Wrx_Containers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="LoadingDate" ColumnName="LoadingDate" />
+                <ScalarProperty Name="RailCar" ColumnName="RailCar" />
+                <ScalarProperty Name="BookingNum" ColumnName="BookingNum" />
+                <ScalarProperty Name="LoadOrderNumber" ColumnName="LoadOrderNumber" />
+                <ScalarProperty Name="ContainerNum" ColumnName="ContainerNum" />
+                <ScalarProperty Name="NumOfPackages" ColumnName="NumOfPackages" />
+                <ScalarProperty Name="SealNumber" ColumnName="SealNumber" />
+                <ScalarProperty Name="UnloadWeight" ColumnName="UnloadWeight" />
+                <ScalarProperty Name="BagWeight" ColumnName="BagWeight" />
+                <ScalarProperty Name="TransferOrderNum" ColumnName="TransferOrderNum" />
+                <ScalarProperty Name="ContractBarNumber" ColumnName="ContractBarNumber" />
+                <ScalarProperty Name="VGM" ColumnName="VGM" />
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_ContainerTypes">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_ContainerTypes">
+              <MappingFragment StoreEntitySet="Wrx_ContainerTypes">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="VolumeFrom" ColumnName="VolumeFrom" />
+                <ScalarProperty Name="VolumeTo" ColumnName="VolumeTo" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_Continents">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_Continents">
+              <MappingFragment StoreEntitySet="Wrx_Continents">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_Countries">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_Countries">
+              <MappingFragment StoreEntitySet="Wrx_Countries">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Continent" ColumnName="Continent" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_CropYear">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_CropYear">
+              <MappingFragment StoreEntitySet="Wrx_CropYear">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CropYear" ColumnName="CropYear" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_Currencies">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_Currencies">
+              <MappingFragment StoreEntitySet="Wrx_Currencies">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="CurrencyName" ColumnName="CurrencyName" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_Customers">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_Customers">
+              <MappingFragment StoreEntitySet="Wrx_Customers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="CustName" ColumnName="CustName" />
+                <ScalarProperty Name="CustNumber" ColumnName="CustNumber" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="TeleFax" ColumnName="TeleFax" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_Destination">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_Destination">
+              <MappingFragment StoreEntitySet="Wrx_Destination">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Destination" ColumnName="Destination" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_DischargePorts">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_DischargePorts">
+              <MappingFragment StoreEntitySet="Wrx_DischargePorts">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="PortName" ColumnName="PortName" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_DocumentTerms">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_DocumentTerms">
+              <MappingFragment StoreEntitySet="Wrx_DocumentTerms">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DocumentTerms" ColumnName="DocumentTerms" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_DTHC">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_DTHC">
+              <MappingFragment StoreEntitySet="Wrx_DTHC">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DTHC" ColumnName="DTHC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_FCL">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_FCL">
+              <MappingFragment StoreEntitySet="Wrx_FCL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="NumOfEcl" ColumnName="NumOfEcl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_Grade">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_Grade">
+              <MappingFragment StoreEntitySet="Wrx_Grade">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_ImportPermit">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_ImportPermit">
+              <MappingFragment StoreEntitySet="Wrx_ImportPermit">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="importno" ColumnName="importno" />
+                <ScalarProperty Name="importquantity" ColumnName="importquantity" />
+                <ScalarProperty Name="importdate" ColumnName="importdate" />
+                <ScalarProperty Name="importexpiry" ColumnName="importexpiry" />
+                <ScalarProperty Name="splitno" ColumnName="splitno" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_ManyMany">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_ManyMany">
+              <MappingFragment StoreEntitySet="Wrx_ManyMany">
+                <ScalarProperty Name="FromID" ColumnName="FromID" />
+                <ScalarProperty Name="FromType" ColumnName="FromType" />
+                <ScalarProperty Name="ToID" ColumnName="ToID" />
+                <ScalarProperty Name="ToType" ColumnName="ToType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_Origin">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_Origin">
+              <MappingFragment StoreEntitySet="Wrx_Origin">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Origin" ColumnName="Origin" />
+                <ScalarProperty Name="OriginLongFormat" ColumnName="OriginLongFormat" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_Plants">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_Plants">
+              <MappingFragment StoreEntitySet="Wrx_Plants">
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Plant" ColumnName="Plant" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_Ports">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_Ports">
+              <MappingFragment StoreEntitySet="Wrx_Ports">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="PortName" ColumnName="PortName" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_ProdInstruct">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_ProdInstruct">
+              <MappingFragment StoreEntitySet="Wrx_ProdInstruct">
+                <ScalarProperty Name="Gw" ColumnName="Gw" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Plant" ColumnName="Plant" />
+                <ScalarProperty Name="UnitType" ColumnName="UnitType" />
+                <ScalarProperty Name="UnitNum" ColumnName="UnitNum" />
+                <ScalarProperty Name="BagsNum" ColumnName="BagsNum" />
+                <ScalarProperty Name="UnitMesure" ColumnName="UnitMesure" />
+                <ScalarProperty Name="TotalMT" ColumnName="TotalMT" />
+                <ScalarProperty Name="CFIA" ColumnName="CFIA" />
+                <ScalarProperty Name="SGS" ColumnName="SGS" />
+                <ScalarProperty Name="Tags" ColumnName="Tags" />
+                <ScalarProperty Name="Crop" ColumnName="Crop" />
+                <ScalarProperty Name="Loadinstructions" ColumnName="Loadinstructions" />
+                <ScalarProperty Name="PlanBal" ColumnName="PlanBal" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_PurchaseContractsMaster">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_PurchaseContractsMaster">
+              <MappingFragment StoreEntitySet="Wrx_PurchaseContractsMaster">
+                <ScalarProperty Name="Contract_date" ColumnName="Contract date" />
+                <ScalarProperty Name="Through" ColumnName="Through" />
+                <ScalarProperty Name="Contractnumber" ColumnName="Contractnumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Termsofpayment" ColumnName="Termsofpayment" />
+                <ScalarProperty Name="Itemnumber" ColumnName="Itemnumber" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Portdischarge" ColumnName="Portdischarge" />
+                <ScalarProperty Name="Port_Place_of_loading" ColumnName="Port/Place of loading" />
+                <ScalarProperty Name="Reference_number" ColumnName="Reference number" />
+                <ScalarProperty Name="ORIGIN_VARIETY" ColumnName="ORIGIN/VARIETY" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="Site" ColumnName="Site" />
+                <ScalarProperty Name="Warehouse" ColumnName="Warehouse" />
+                <ScalarProperty Name="Buyer__" ColumnName="Buyer #" />
+                <ScalarProperty Name="Order_type" ColumnName="Order type" />
+                <ScalarProperty Name="Delivery_from_date" ColumnName="Delivery from date" />
+                <ScalarProperty Name="Delivery_to_date" ColumnName="Delivery to date" />
+                <ScalarProperty Name="Delivery_terms" ColumnName="Delivery terms" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Contract_quantity" ColumnName="Contract quantity" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="Payment" ColumnName="Payment" />
+                <ScalarProperty Name="Closed" ColumnName="Closed" />
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_RailCarsTypes">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_RailCarsTypes">
+              <MappingFragment StoreEntitySet="Wrx_RailCarsTypes">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="VolumeFrom" ColumnName="VolumeFrom" />
+                <ScalarProperty Name="VolumeTo" ColumnName="VolumeTo" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_RawDataTrans">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_RawDataTrans">
+              <MappingFragment StoreEntitySet="Wrx_RawDataTrans">
+                <ScalarProperty Name="ConID" ColumnName="ConID" />
+                <ScalarProperty Name="Buyer" ColumnName="Buyer" />
+                <ScalarProperty Name="Configuration" ColumnName="Configuration" />
+                <ScalarProperty Name="Contractdate" ColumnName="Contractdate" />
+                <ScalarProperty Name="Contractnumber" ColumnName="Contractnumber" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Contractstatus" ColumnName="Contractstatus" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="Deliveryfromdate" ColumnName="Deliveryfromdate" />
+                <ScalarProperty Name="Deliveryterms" ColumnName="Deliveryterms" />
+                <ScalarProperty Name="Deliverytodate" ColumnName="Deliverytodate" />
+                <ScalarProperty Name="Duedate" ColumnName="Duedate" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="Itemnumber" ColumnName="Itemnumber" />
+                <ScalarProperty Name="CmpName" ColumnName="CmpName" />
+                <ScalarProperty Name="Numberofbags" ColumnName="Numberofbags" />
+                <ScalarProperty Name="ORIGINVARIETY" ColumnName="ORIGINVARIETY" />
+                <ScalarProperty Name="Ordertype" ColumnName="Ordertype" />
+                <ScalarProperty Name="Payment" ColumnName="Payment" />
+                <ScalarProperty Name="Paymentdate" ColumnName="Paymentdate" />
+                <ScalarProperty Name="Portdischarge" ColumnName="Portdischarge" />
+                <ScalarProperty Name="Portofloading" ColumnName="Portofloading" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Site" ColumnName="Site" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="WareHouse" ColumnName="WareHouse" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+                <ScalarProperty Name="ownedon" ColumnName="ownedon" />
+                <ScalarProperty Name="ownedby" ColumnName="ownedby" />
+                <ScalarProperty Name="Termsofpayment" ColumnName="Termsofpayment" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Referencenumber" ColumnName="Referencenumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_Rights">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_Rights">
+              <MappingFragment StoreEntitySet="Wrx_Rights">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="ScopeLevel" ColumnName="ScopeLevel" />
+                <ScalarProperty Name="Access" ColumnName="Access" />
+                <ScalarProperty Name="AddRight" ColumnName="AddRight" />
+                <ScalarProperty Name="ReadRight" ColumnName="ReadRight" />
+                <ScalarProperty Name="EditRight" ColumnName="EditRight" />
+                <ScalarProperty Name="DeleteRight" ColumnName="DeleteRight" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_Roles">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_Roles">
+              <MappingFragment StoreEntitySet="Wrx_Roles">
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_SalesContractMaster">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_SalesContractMaster">
+              <MappingFragment StoreEntitySet="Wrx_SalesContractMaster">
+                <ScalarProperty Name="Contractdate" ColumnName="Contractdate" />
+                <ScalarProperty Name="Contractnumber" ColumnName="Contractnumber" />
+                <ScalarProperty Name="CmpName" ColumnName="CmpName" />
+                <ScalarProperty Name="Termsofpayment" ColumnName="Termsofpayment" />
+                <ScalarProperty Name="Itemnumber" ColumnName="Itemnumber" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Portdischarge" ColumnName="Portdischarge" />
+                <ScalarProperty Name="ORIGINVARIETY" ColumnName="ORIGINVARIETY" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="Site" ColumnName="Site" />
+                <ScalarProperty Name="Warehouse" ColumnName="Warehouse" />
+                <ScalarProperty Name="Buyer" ColumnName="Buyer" />
+                <ScalarProperty Name="Ordertype" ColumnName="Ordertype" />
+                <ScalarProperty Name="Deliveryfromdate" ColumnName="Deliveryfromdate" />
+                <ScalarProperty Name="Deliverytodate" ColumnName="Deliverytodate" />
+                <ScalarProperty Name="Deliveryterms" ColumnName="Deliveryterms" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="Payment" ColumnName="Payment" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_SalesContracts">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_SalesContracts">
+              <MappingFragment StoreEntitySet="Wrx_SalesContracts">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Contractdate" ColumnName="Contractdate" />
+                <ScalarProperty Name="Contractnumber" ColumnName="Contractnumber" />
+                <ScalarProperty Name="Customerid" ColumnName="Customerid" />
+                <ScalarProperty Name="Termsofpayment" ColumnName="Termsofpayment" />
+                <ScalarProperty Name="Commodityid" ColumnName="Commodityid" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Portdischargeid" ColumnName="Portdischargeid" />
+                <ScalarProperty Name="Originid" ColumnName="Originid" />
+                <ScalarProperty Name="Gradeid" ColumnName="Gradeid" />
+                <ScalarProperty Name="Site" ColumnName="Site" />
+                <ScalarProperty Name="Warehouse" ColumnName="Warehouse" />
+                <ScalarProperty Name="Buyer" ColumnName="Buyer" />
+                <ScalarProperty Name="Ordertype" ColumnName="Ordertype" />
+                <ScalarProperty Name="Deliveryfromdate" ColumnName="Deliveryfromdate" />
+                <ScalarProperty Name="Deliverytodate" ColumnName="Deliverytodate" />
+                <ScalarProperty Name="Deliveryterms" ColumnName="Deliveryterms" />
+                <ScalarProperty Name="Unitid" ColumnName="Unitid" />
+                <ScalarProperty Name="Currencyid" ColumnName="Currencyid" />
+                <ScalarProperty Name="Payment" ColumnName="Payment" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+                <ScalarProperty Name="Ownerid" ColumnName="Ownerid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_SecurityLevel">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_SecurityLevel">
+              <MappingFragment StoreEntitySet="Wrx_SecurityLevel">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_SendingBank">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_SendingBank">
+              <MappingFragment StoreEntitySet="Wrx_SendingBank">
+                <ScalarProperty Name="SendingBank" ColumnName="SendingBank" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_ServcieType">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_ServcieType">
+              <MappingFragment StoreEntitySet="Wrx_ServcieType">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="SrvName" ColumnName="SrvName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_ShipBooking">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_ShipBooking">
+              <MappingFragment StoreEntitySet="Wrx_ShipBooking">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="BookingRef" ColumnName="BookingRef" />
+                <ScalarProperty Name="ShippingLine" ColumnName="ShippingLine" />
+                <ScalarProperty Name="FCLNum" ColumnName="FCLNum" />
+                <ScalarProperty Name="DoxCutoff" ColumnName="DoxCutoff" />
+                <ScalarProperty Name="VGMCutoff" ColumnName="VGMCutoff" />
+                <ScalarProperty Name="LRD" ColumnName="LRD" />
+                <ScalarProperty Name="ETS" ColumnName="ETS" />
+                <ScalarProperty Name="ETA" ColumnName="ETA" />
+                <ScalarProperty Name="VesselName" ColumnName="VesselName" />
+                <ScalarProperty Name="VoyageNum" ColumnName="VoyageNum" />
+                <ScalarProperty Name="ERD" ColumnName="ERD" />
+                <ScalarProperty Name="SplitNum" ColumnName="SplitNum" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_ShipInstruct">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_ShipInstruct">
+              <MappingFragment StoreEntitySet="Wrx_ShipInstruct">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Transloader" ColumnName="Transloader" />
+                <ScalarProperty Name="FCLNum" ColumnName="FCLNum" />
+                <ScalarProperty Name="SrvType" ColumnName="SrvType" />
+                <ScalarProperty Name="UnitNum" ColumnName="UnitNum" />
+                <ScalarProperty Name="BagsNum" ColumnName="BagsNum" />
+                <ScalarProperty Name="MTNum" ColumnName="MTNum" />
+                <ScalarProperty Name="CFIA" ColumnName="CFIA" />
+                <ScalarProperty Name="SGS" ColumnName="SGS" />
+                <ScalarProperty Name="Tags" ColumnName="Tags" />
+                <ScalarProperty Name="LoadInstructions" ColumnName="LoadInstructions" />
+                <ScalarProperty Name="InstructBal" ColumnName="InstructBal" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_ShippingLines">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_ShippingLines">
+              <MappingFragment StoreEntitySet="Wrx_ShippingLines">
+                <ScalarProperty Name="LineName" ColumnName="LineName" />
+                <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+                <ScalarProperty Name="Carrier" ColumnName="Carrier" />
+                <ScalarProperty Name="LOGO" ColumnName="LOGO" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_Teams">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_Teams">
+              <MappingFragment StoreEntitySet="Wrx_Teams">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_Transloaders">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_Transloaders">
+              <MappingFragment StoreEntitySet="Wrx_Transloaders">
+                <ScalarProperty Name="TransID" ColumnName="TransID" />
+                <ScalarProperty Name="TransName" ColumnName="TransName" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_Units">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_Units">
+              <MappingFragment StoreEntitySet="Wrx_Units">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_User">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_User">
+              <MappingFragment StoreEntitySet="Wrx_User">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Security" ColumnName="Security" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_DocumentationTracking">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_DocumentationTracking">
+              <MappingFragment StoreEntitySet="Wrx_DocumentationTracking">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DocSpecialist" ColumnName="DocSpecialist" />
+                <ScalarProperty Name="ContractNumber" ColumnName="ContractNumber" />
+                <ScalarProperty Name="Bar" ColumnName="Bar" />
+                <ScalarProperty Name="DeliveryTerm" ColumnName="DeliveryTerm" />
+                <ScalarProperty Name="DocumentTerm" ColumnName="DocumentTerm" />
+                <ScalarProperty Name="DTHC" ColumnName="DTHC" />
+                <ScalarProperty Name="NotifyParty" ColumnName="NotifyParty" />
+                <ScalarProperty Name="IECCode" ColumnName="IECCode" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Booking" ColumnName="Booking" />
+                <ScalarProperty Name="PortOfLoading" ColumnName="PortOfLoading" />
+                <ScalarProperty Name="PortOfDestination" ColumnName="PortOfDestination" />
+                <ScalarProperty Name="CountryOfDestination" ColumnName="CountryOfDestination" />
+                <ScalarProperty Name="SailingDate" ColumnName="SailingDate" />
+                <ScalarProperty Name="ActualSailingDate" ColumnName="ActualSailingDate" />
+                <ScalarProperty Name="OriginalDocDueForSending" ColumnName="OriginalDocDueForSending" />
+                <ScalarProperty Name="ETA" ColumnName="ETA" />
+                <ScalarProperty Name="NumOfFCL" ColumnName="NumOfFCL" />
+                <ScalarProperty Name="ShippmentType" ColumnName="ShippmentType" />
+                <ScalarProperty Name="NumOfCars" ColumnName="NumOfCars" />
+                <ScalarProperty Name="LotNumber" ColumnName="LotNumber" />
+                <ScalarProperty Name="Commodity" ColumnName="Commodity" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="InvoiceQTY" ColumnName="InvoiceQTY" />
+                <ScalarProperty Name="Price_MT" ColumnName="Price/MT" />
+                <ScalarProperty Name="InvoiceAmount" ColumnName="InvoiceAmount" />
+                <ScalarProperty Name="InvoiceAmountInWords" ColumnName="InvoiceAmountInWords" />
+                <ScalarProperty Name="ERPInvoiceNO" ColumnName="ERPInvoiceNO" />
+                <ScalarProperty Name="B13orAESFilingNumber" ColumnName="B13orAESFilingNumber" />
+                <ScalarProperty Name="B13orAESFilingAmount" ColumnName="B13orAESFilingAmount" />
+                <ScalarProperty Name="DescriptionofProduct" ColumnName="DescriptionofProduct" />
+                <ScalarProperty Name="CropYear" ColumnName="CropYear" />
+                <ScalarProperty Name="ProductionMonth" ColumnName="ProductionMonth" />
+                <ScalarProperty Name="ProductionYear" ColumnName="ProductionYear" />
+                <ScalarProperty Name="BLISentDate" ColumnName="BLISentDate" />
+                <ScalarProperty Name="ApropriationDate" ColumnName="ApropriationDate" />
+                <ScalarProperty Name="BLNO" ColumnName="BLNO" />
+                <ScalarProperty Name="BLApprovalDate" ColumnName="BLApprovalDate" />
+                <ScalarProperty Name="BLFreightInvoiceReceivedDate" ColumnName="BLFreightInvoiceReceivedDate" />
+                <ScalarProperty Name="PhytoRequestedDate" ColumnName="PhytoRequestedDate" />
+                <ScalarProperty Name="PhytoReceivedDate" ColumnName="PhytoReceivedDate" />
+                <ScalarProperty Name="SGSRequestedDate" ColumnName="SGSRequestedDate" />
+                <ScalarProperty Name="SGS_Received_Date" ColumnName="SGS Received Date" />
+                <ScalarProperty Name="COOReceiveDate" ColumnName="COOReceiveDate" />
+                <ScalarProperty Name="USPhytoRequestedDate" ColumnName="USPhytoRequestedDate" />
+                <ScalarProperty Name="USPhytoReceivedDate" ColumnName="USPhytoReceivedDate" />
+                <ScalarProperty Name="DateFinaldocsetsent" ColumnName="DateFinaldocsetsent" />
+                <ScalarProperty Name="InhouseFF" ColumnName="InhouseFF" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ToBankBuyer" ColumnName="ToBankBuyer" />
+                <ScalarProperty Name="SendingBank" ColumnName="SendingBank" />
+                <ScalarProperty Name="ReceivingBank" ColumnName="ReceivingBank" />
+                <ScalarProperty Name="BankReference" ColumnName="BankReference" />
+                <ScalarProperty Name="Courier" ColumnName="Courier" />
+                <ScalarProperty Name="AWBOriginaldocsweresent" ColumnName="AWBOriginaldocsweresent" />
+                <ScalarProperty Name="Freightinvoice" ColumnName="Freightinvoice" />
+                <ScalarProperty Name="FreightinvoiceAmount" ColumnName="FreightinvoiceAmount" />
+                <ScalarProperty Name="Vessel" ColumnName="Vessel" />
+                <ScalarProperty Name="ShippingLine" ColumnName="ShippingLine" />
+                <ScalarProperty Name="ContractBar" ColumnName="ContractBar" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="NumberofDays" ColumnName="NumberofDays" />
+                <ScalarProperty Name="ERPInvoiceDate" ColumnName="ERPInvoiceDate" />
+                <ScalarProperty Name="PaymentRcvdDate" ColumnName="PaymentRcvdDate" />
+                <ScalarProperty Name="PaymentRcvdAmt" ColumnName="PaymentRcvdAmt" />
+                <ScalarProperty Name="MISC" ColumnName="MISC" />
+                <ScalarProperty Name="NumberofBags" ColumnName="NumberofBags" />
+                <ScalarProperty Name="OnBehalfOf" ColumnName="OnBehalfOf" />
+                <ScalarProperty Name="Add1" ColumnName="Add1" />
+                <ScalarProperty Name="Add2" ColumnName="Add2" />
+                <ScalarProperty Name="Less1" ColumnName="Less1" />
+                <ScalarProperty Name="Less2" ColumnName="Less2" />
+                <ScalarProperty Name="ConsigneeText" ColumnName="ConsigneeText" />
+                <ScalarProperty Name="ConsigneeAddress" ColumnName="ConsigneeAddress" />
+                <ScalarProperty Name="ConsigneePhone" ColumnName="ConsigneePhone" />
+                <ScalarProperty Name="ConsigneeFax" ColumnName="ConsigneeFax" />
+                <ScalarProperty Name="ConsigneeEmail" ColumnName="ConsigneeEmail" />
+                <ScalarProperty Name="PaymTerm" ColumnName="PaymTerm" />
+                <ScalarProperty Name="ImportPermit" ColumnName="ImportPermit" />
+                <ScalarProperty Name="ImportDate" ColumnName="ImportDate" />
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_RailCars">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_RailCars">
+              <MappingFragment StoreEntitySet="Wrx_RailCars">
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_GrainCalendar">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_GrainCalendar">
+              <MappingFragment StoreEntitySet="Wrx_GrainCalendar">
+                <ScalarProperty Name="GW" ColumnName="GW" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_Packages">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_Packages">
+              <MappingFragment StoreEntitySet="Wrx_Packages">
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="MTConversion" ColumnName="MTConversion" />
+                <ScalarProperty Name="Dimensions" ColumnName="Dimensions" />
+                <ScalarProperty Name="plain" ColumnName="plain" />
+                <ScalarProperty Name="colour" ColumnName="colour" />
+                <ScalarProperty Name="weightunit" ColumnName="weightunit" />
+                <ScalarProperty Name="bagweight" ColumnName="bagweight" />
+                <ScalarProperty Name="bagtype" ColumnName="bagtype" />
+                <ScalarProperty Name="bagname" ColumnName="bagname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_Pkagetypes">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_Pkagetypes">
+              <MappingFragment StoreEntitySet="Wrx_Pkagetypes">
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="pkagetype" ColumnName="pkagetype" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_RailCarMap">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_RailCarMap">
+              <MappingFragment StoreEntitySet="Wrx_RailCarMap">
+                <ScalarProperty Name="contractid" ColumnName="contractid" />
+                <ScalarProperty Name="Splitno" ColumnName="Splitno" />
+                <ScalarProperty Name="balancetomap" ColumnName="balancetomap" />
+                <ScalarProperty Name="Expiredate" ColumnName="Expiredate" />
+                <ScalarProperty Name="Shipdate" ColumnName="Shipdate" />
+                <ScalarProperty Name="VGM" ColumnName="VGM" />
+                <ScalarProperty Name="bookingid" ColumnName="bookingid" />
+                <ScalarProperty Name="sealno" ColumnName="sealno" />
+                <ScalarProperty Name="Tonnage" ColumnName="Tonnage" />
+                <ScalarProperty Name="containerid" ColumnName="containerid" />
+                <ScalarProperty Name="Pkageid" ColumnName="Pkageid" />
+                <ScalarProperty Name="RailCarid" ColumnName="RailCarid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NotesAndAttachements">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.NotesAndAttachement">
+              <MappingFragment StoreEntitySet="NotesAndAttachements">
+                <ScalarProperty Name="CratedOn" ColumnName="CratedOn" />
+                <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+                <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="Base64File" ColumnName="Base64File" />
+                <ScalarProperty Name="MimeType" ColumnName="MimeType" />
+                <ScalarProperty Name="EntityID" ColumnName="EntityID" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="NotesID" ColumnName="NotesID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

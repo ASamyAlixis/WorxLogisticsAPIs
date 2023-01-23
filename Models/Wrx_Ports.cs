@@ -14,9 +14,11 @@ namespace WorxLogisticsAPIs.Models
     
     public partial class Wrx_Ports
     {
-        public string ID { get; set; }
+        public long id { get; set; }
         public string PortName { get; set; }
-        public Nullable<bool> Loading { get; set; }
-        public Nullable<bool> Discharge { get; set; }
+        public Nullable<long> createdby { get; set; }
+        public Nullable<System.DateTime> createdon { get; set; }
+        public Nullable<long> modifiedby { get; set; }
+        public Nullable<System.DateTime> modifiedon { get; set; }
     }
 }

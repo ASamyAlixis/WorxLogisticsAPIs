@@ -14,12 +14,7 @@ namespace WorxLogisticsAPIs.Models
     
     public partial class Wrx_Customers
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Wrx_Customers()
-        {
-            this.Wrx_SalesContract = new HashSet<Wrx_SalesContract>();
-        }
-    
+        public long id { get; set; }
         public string CustName { get; set; }
         public string CustNumber { get; set; }
         public string Address { get; set; }
@@ -28,8 +23,9 @@ namespace WorxLogisticsAPIs.Models
         public string Currency { get; set; }
         public string Location { get; set; }
         public string Email { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Wrx_SalesContract> Wrx_SalesContract { get; set; }
+        public Nullable<long> createdby { get; set; }
+        public Nullable<System.DateTime> createdon { get; set; }
+        public Nullable<long> modifiedby { get; set; }
+        public Nullable<System.DateTime> modifiedon { get; set; }
     }
 }

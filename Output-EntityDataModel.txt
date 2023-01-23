@@ -1,31 +1,9 @@
-﻿The model was generated with warnings or errors.ETGPortal.edmxPlease see the Error List for more details. These issues must be fixed before running your application.
-Loading metadata from the database took 00:00:01.0118608.
-Generating the model took 00:00:02.4548723.
-The model was generated with warnings or errors.ETGPortal.edmxPlease see the Error List for more details. These issues must be fixed before running your application.
-Loading metadata from the database took 00:00:00.9568429.
-Generating the model took 00:00:01.9875807.
-The model was generated with warnings or errors.ETGPortal.edmxPlease see the Error List for more details. These issues must be fixed before running your application.
-Loading metadata from the database took 00:00:00.8146407.
-Generating the model took 00:00:01.5607646.
-The model was generated with warnings or errors.ETGPortal.edmxPlease see the Error List for more details. These issues must be fixed before running your application.
-Loading metadata from the database took 00:00:01.1502113.
-Generating the model took 00:00:01.0048110.
-The model was generated with warnings or errors.ETGPortal.edmxPlease see the Error List for more details. These issues must be fixed before running your application.
-Loading metadata from the database took 00:00:00.8145665.
-Generating the model took 00:00:01.6015674.
-The model was generated with warnings or errors.ETGPortal.edmxPlease see the Error List for more details. These issues must be fixed before running your application.
-Loading metadata from the database took 00:00:00.8480917.
-Generating the model took 00:00:01.5425482.
-The model was generated with warnings or errors.ETGPortal.edmxPlease see the Error List for more details. These issues must be fixed before running your application.
-Loading metadata from the database took 00:00:00.8694629.
-Generating the model took 00:00:00.9599610.
-The model was generated with warnings or errors.ETGPortal.edmxPlease see the Error List for more details. These issues must be fixed before running your application.
-Loading metadata from the database took 00:00:01.3162156.
-Generating the model took 00:00:02.5651636.
-Added the connection string to the Web.Config file.
-The model was generated with warnings or errors.ETGPortal.edmxPlease see the Error List for more details. These issues must be fixed before running your application.
-Loading metadata from the database took 00:00:01.4962364.
-Generating the model took 00:00:02.6738357.
-The model was generated with warnings or errors.ETGPortal.edmxPlease see the Error List for more details. These issues must be fixed before running your application.
-Loading metadata from the database took 00:00:01.7008488.
-Generating the model took 00:00:03.4159852.
+﻿The model was generated with warnings or errors.ETGPortalDB.edmxPlease see the Error List for more details. These issues must be fixed before running your application.
+Loading metadata from the database took 00:00:00.9675545.
+Generating the model took 00:00:02.8370277.
+The model was generated with warnings or errors.ETGPortalDB.edmxPlease see the Error List for more details. These issues must be fixed before running your application.
+Loading metadata from the database took 00:00:00.7252408.
+Generating the model took 00:00:00.9636756.
+The model was generated with warnings or errors.ETGPortalDB.edmxPlease see the Error List for more details. These issues must be fixed before running your application.
+Loading metadata from the database took 00:00:00.6853049.
+Generating the model took 00:00:01.5432736.

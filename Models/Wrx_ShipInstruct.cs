@@ -12,14 +12,23 @@ namespace WorxLogisticsAPIs.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Wrx_Grade
+    public partial class Wrx_ShipInstruct
     {
         public long id { get; set; }
-        public string Code { get; set; }
-        public string Grade { get; set; }
-        public Nullable<long> createdby { get; set; }
+        public Nullable<long> Transloader { get; set; }
+        public string FCLNum { get; set; }
+        public Nullable<long> SrvType { get; set; }
+        public string UnitNum { get; set; }
+        public string BagsNum { get; set; }
+        public string MTNum { get; set; }
+        public string CFIA { get; set; }
+        public string SGS { get; set; }
+        public string Tags { get; set; }
+        public string LoadInstructions { get; set; }
+        public string InstructBal { get; set; }
         public Nullable<System.DateTime> createdon { get; set; }
-        public Nullable<long> modifiedby { get; set; }
+        public Nullable<long> createdby { get; set; }
         public Nullable<System.DateTime> modifiedon { get; set; }
+        public Nullable<long> modifiedby { get; set; }
     }
 }

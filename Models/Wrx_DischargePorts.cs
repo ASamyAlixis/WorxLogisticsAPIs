@@ -12,11 +12,10 @@ namespace WorxLogisticsAPIs.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Wrx_Grade
+    public partial class Wrx_DischargePorts
     {
         public long id { get; set; }
-        public string Code { get; set; }
-        public string Grade { get; set; }
+        public string PortName { get; set; }
         public Nullable<long> createdby { get; set; }
         public Nullable<System.DateTime> createdon { get; set; }
         public Nullable<long> modifiedby { get; set; }

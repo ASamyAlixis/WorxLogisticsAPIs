@@ -14,9 +14,13 @@ namespace WorxLogisticsAPIs.Models
     
     public partial class Wrx_Destination
     {
-        public int ID { get; set; }
+        public long id { get; set; }
         public string Destination { get; set; }
         public string Address { get; set; }
         public string Contact { get; set; }
+        public Nullable<long> createdby { get; set; }
+        public Nullable<System.DateTime> createdon { get; set; }
+        public Nullable<long> modifiedby { get; set; }
+        public Nullable<System.DateTime> modifiedon { get; set; }
     }
 }

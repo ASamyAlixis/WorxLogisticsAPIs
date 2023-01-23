@@ -14,9 +14,9 @@ namespace WorxLogisticsAPIs.Models
     
     public partial class Wrx_ManyMany
     {
-        public string FromID { get; set; }
+        public long FromID { get; set; }
         public string FromType { get; set; }
-        public string ToID { get; set; }
+        public long ToID { get; set; }
         public string ToType { get; set; }
     }
 }

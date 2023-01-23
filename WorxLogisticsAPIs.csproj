@@ -95,132 +95,198 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Models\ETGPortalDB.Context.tt">
+    <Content Include="Models\Worx_ELogisticsEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ETGPortalDB.edmx</DependentUpon>
-      <LastGenOutput>ETGPortalDB.Context.cs</LastGenOutput>
+      <DependentUpon>Worx_ELogisticsEntities.edmx</DependentUpon>
+      <LastGenOutput>Worx_ELogisticsEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\ETGPortalDB.tt">
+    <Content Include="Models\Worx_ELogisticsEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ETGPortalDB.edmx</DependentUpon>
-      <LastGenOutput>ETGPortalDB.cs</LastGenOutput>
+      <DependentUpon>Worx_ELogisticsEntities.edmx</DependentUpon>
+      <LastGenOutput>Worx_ELogisticsEntities.cs</LastGenOutput>
     </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ContractsController.cs" />
+    <Compile Include="Controllers\NotesAndAttachementsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ETGPortalDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ETGPortalDB.Context.tt</DependentUpon>
+    <Compile Include="Models\Customer.cs">
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ETGPortalDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ETGPortalDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ETGPortalDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ETGPortalDB.edmx</DependentUpon>
+    <Compile Include="Models\NotesAndAttachement.cs">
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Response.cs" />
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Worx_ELogisticsEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Worx_ELogisticsEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Worx_ELogisticsEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Worx_ELogisticsEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Worx_ELogisticsEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Wrx_BatchContract.cs">
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Wrx_Commodity.cs">
-      <DependentUpon>ETGPortalDB.tt</DependentUpon>
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Wrx_Company.cs">
-      <DependentUpon>ETGPortalDB.tt</DependentUpon>
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Wrx_Containers.cs">
-      <DependentUpon>ETGPortalDB.tt</DependentUpon>
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Wrx_ContainerTypes.cs">
-      <DependentUpon>ETGPortalDB.tt</DependentUpon>
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Wrx_Continents.cs">
-      <DependentUpon>ETGPortalDB.tt</DependentUpon>
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Wrx_Countries.cs">
-      <DependentUpon>ETGPortalDB.tt</DependentUpon>
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Wrx_CropYear.cs">
-      <DependentUpon>ETGPortalDB.tt</DependentUpon>
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Wrx_Currencies.cs">
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Wrx_Customers.cs">
-      <DependentUpon>ETGPortalDB.tt</DependentUpon>
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Wrx_Destination.cs">
-      <DependentUpon>ETGPortalDB.tt</DependentUpon>
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Wrx_DischargePorts.cs">
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Wrx_DocumentationTracking.cs">
-      <DependentUpon>ETGPortalDB.tt</DependentUpon>
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Wrx_DocumentTerms.cs">
-      <DependentUpon>ETGPortalDB.tt</DependentUpon>
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Wrx_DTHC.cs">
-      <DependentUpon>ETGPortalDB.tt</DependentUpon>
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Wrx_FCL.cs">
-      <DependentUpon>ETGPortalDB.tt</DependentUpon>
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Wrx_Grade.cs">
-      <DependentUpon>ETGPortalDB.tt</DependentUpon>
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Wrx_Main.cs">
-      <DependentUpon>ETGPortalDB.tt</DependentUpon>
+    <Compile Include="Models\Wrx_GrainCalendar.cs">
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Wrx_ImportPermit.cs">
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Wrx_ManyMany.cs">
-      <DependentUpon>ETGPortalDB.tt</DependentUpon>
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Wrx_Origin.cs">
-      <DependentUpon>ETGPortalDB.tt</DependentUpon>
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Wrx_Packages.cs">
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Wrx_Pkagetypes.cs">
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Wrx_Plants.cs">
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Wrx_Ports.cs">
-      <DependentUpon>ETGPortalDB.tt</DependentUpon>
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Wrx_ProdInstruct.cs">
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Wrx_PurchaseContractsMaster.cs">
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Wrx_RailCarMap.cs">
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Wrx_RailCars.cs">
-      <DependentUpon>ETGPortalDB.tt</DependentUpon>
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Wrx_SalesContract.cs">
-      <DependentUpon>ETGPortalDB.tt</DependentUpon>
+    <Compile Include="Models\Wrx_RailCarsTypes.cs">
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Wrx_RawDataTrans.cs">
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Wrx_Rights.cs">
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Wrx_Roles.cs">
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Wrx_SalesContractMaster.cs">
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Wrx_SalesContracts.cs">
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Wrx_SecurityLevel.cs">
-      <DependentUpon>ETGPortalDB.tt</DependentUpon>
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Wrx_SendingBank.cs">
-      <DependentUpon>ETGPortalDB.tt</DependentUpon>
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Wrx_ServcieType.cs">
-      <DependentUpon>ETGPortalDB.tt</DependentUpon>
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Wrx_ShipBooking.cs">
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Wrx_ShipInstruct.cs">
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Wrx_ShippingLines.cs">
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Wrx_Teams.cs">
-      <DependentUpon>ETGPortalDB.tt</DependentUpon>
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Wrx_Transloaders.cs">
-      <DependentUpon>ETGPortalDB.tt</DependentUpon>
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Wrx_Units.cs">
-      <DependentUpon>ETGPortalDB.tt</DependentUpon>
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Wrx_User.cs">
-      <DependentUpon>ETGPortalDB.tt</DependentUpon>
+      <DependentUpon>Worx_ELogisticsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Models\ETGPortalDB.edmx">
+    <EntityDeploy Include="Models\Worx_ELogisticsEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ETGPortalDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>Worx_ELogisticsEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\ETGPortalDB.edmx.diagram">
-      <DependentUpon>ETGPortalDB.edmx</DependentUpon>
+    <Content Include="Models\Worx_ELogisticsEntities.edmx.diagram">
+      <DependentUpon>Worx_ELogisticsEntities.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -249,7 +315,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>51903</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44304/</IISUrl>
+          <IISUrl>http://localhost:44304/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

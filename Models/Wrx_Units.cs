@@ -14,7 +14,11 @@ namespace WorxLogisticsAPIs.Models
     
     public partial class Wrx_Units
     {
-        public string UnitID { get; set; }
+        public long id { get; set; }
         public string UnitName { get; set; }
+        public Nullable<long> createdby { get; set; }
+        public Nullable<System.DateTime> createdon { get; set; }
+        public Nullable<long> modifiedby { get; set; }
+        public Nullable<System.DateTime> modifiedon { get; set; }
     }
 }

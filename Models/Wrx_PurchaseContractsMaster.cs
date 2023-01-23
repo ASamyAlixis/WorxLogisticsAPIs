@@ -12,24 +12,24 @@ namespace WorxLogisticsAPIs.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Wrx_Main
+    public partial class Wrx_PurchaseContractsMaster
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Wrx_Main()
+        public Wrx_PurchaseContractsMaster()
         {
             this.Wrx_DocumentationTracking = new HashSet<Wrx_DocumentationTracking>();
         }
     
         public Nullable<System.DateTime> Contract_date { get; set; }
         public string Through { get; set; }
-        public string Contract_number { get; set; }
+        public string Contractnumber { get; set; }
         public string Name { get; set; }
-        public string Terms_of_payment { get; set; }
-        public string Item_number { get; set; }
+        public string Termsofpayment { get; set; }
+        public string Itemnumber { get; set; }
         public Nullable<double> Quantity { get; set; }
         public Nullable<double> Price { get; set; }
         public Nullable<double> Amount { get; set; }
-        public string Port_Place_of_discharge { get; set; }
+        public string Portdischarge { get; set; }
         public string Port_Place_of_loading { get; set; }
         public string Reference_number { get; set; }
         public string ORIGIN_VARIETY { get; set; }

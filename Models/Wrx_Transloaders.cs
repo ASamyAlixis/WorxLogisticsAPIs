@@ -16,5 +16,11 @@ namespace WorxLogisticsAPIs.Models
     {
         public string TransID { get; set; }
         public string TransName { get; set; }
+        public Nullable<long> createdby { get; set; }
+        public Nullable<System.DateTime> createdon { get; set; }
+        public Nullable<long> modifiedby { get; set; }
+        public Nullable<System.DateTime> modifiedon { get; set; }
+        public string Logo { get; set; }
+        public long id { get; set; }
     }
 }

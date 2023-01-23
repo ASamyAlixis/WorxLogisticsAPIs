@@ -14,7 +14,7 @@ namespace WorxLogisticsAPIs.Models
     
     public partial class Wrx_FCL
     {
-        public int ID { get; set; }
+        public long id { get; set; }
         public string NumOfEcl { get; set; }
     }
 }

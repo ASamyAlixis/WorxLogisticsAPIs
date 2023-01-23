@@ -14,7 +14,7 @@ namespace WorxLogisticsAPIs.Models
     
     public partial class Wrx_Containers
     {
-        public int ID { get; set; }
+        public long id { get; set; }
         public Nullable<System.DateTime> LoadingDate { get; set; }
         public Nullable<int> RailCar { get; set; }
         public string BookingNum { get; set; }
@@ -28,5 +28,9 @@ namespace WorxLogisticsAPIs.Models
         public int ContractBarNumber { get; set; }
         public Nullable<double> VGM { get; set; }
         public byte[] SSMA_TimeStamp { get; set; }
+        public Nullable<long> createdby { get; set; }
+        public Nullable<System.DateTime> createdon { get; set; }
+        public Nullable<long> modifiedby { get; set; }
+        public Nullable<System.DateTime> modifiedon { get; set; }
     }
 }

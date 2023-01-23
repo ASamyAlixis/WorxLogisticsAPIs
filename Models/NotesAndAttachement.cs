@@ -12,14 +12,17 @@ namespace WorxLogisticsAPIs.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Wrx_Grade
+    public partial class NotesAndAttachement
     {
-        public long id { get; set; }
-        public string Code { get; set; }
-        public string Grade { get; set; }
-        public Nullable<long> createdby { get; set; }
-        public Nullable<System.DateTime> createdon { get; set; }
-        public Nullable<long> modifiedby { get; set; }
-        public Nullable<System.DateTime> modifiedon { get; set; }
+        public long NotesID { get; set; }
+        public string Subject { get; set; }
+        public string EntityID { get; set; }
+        public string MimeType { get; set; }
+        public string Base64File { get; set; }
+        public string FileName { get; set; }
+        public string Notes { get; set; }
+        public string OwnerId { get; set; }
+        public string OwnerName { get; set; }
+        public Nullable<System.DateTime> CratedOn { get; set; }
     }
 }

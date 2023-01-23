@@ -14,7 +14,7 @@ namespace WorxLogisticsAPIs.Models
     
     public partial class Wrx_Company
     {
-        public int ID { get; set; }
+        public long id { get; set; }
         public string Shipper { get; set; }
         public string Street { get; set; }
         public string CityCountry { get; set; }
@@ -23,5 +23,9 @@ namespace WorxLogisticsAPIs.Models
         public string Tel { get; set; }
         public string Fax { get; set; }
         public string Website { get; set; }
+        public Nullable<int> createdby { get; set; }
+        public Nullable<System.DateTime> createdon { get; set; }
+        public Nullable<int> modifiedby { get; set; }
+        public Nullable<System.DateTime> modifiedon { get; set; }
     }
 }

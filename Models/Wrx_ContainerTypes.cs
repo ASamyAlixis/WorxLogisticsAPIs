@@ -14,9 +14,13 @@ namespace WorxLogisticsAPIs.Models
     
     public partial class Wrx_ContainerTypes
     {
-        public string TypeID { get; set; }
+        public long id { get; set; }
         public string TypeName { get; set; }
         public Nullable<int> VolumeFrom { get; set; }
         public string VolumeTo { get; set; }
+        public Nullable<long> createdby { get; set; }
+        public Nullable<System.DateTime> createdon { get; set; }
+        public Nullable<long> modifiedby { get; set; }
+        public Nullable<System.DateTime> modifiedon { get; set; }
     }
 }

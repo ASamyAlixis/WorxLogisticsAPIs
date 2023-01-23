@@ -14,9 +14,13 @@ namespace WorxLogisticsAPIs.Models
     
     public partial class Wrx_Teams
     {
-        public string ID { get; set; }
+        public long id { get; set; }
         public string Name { get; set; }
         public Nullable<bool> IsActive { get; set; }
         public string Description { get; set; }
+        public Nullable<long> createdby { get; set; }
+        public Nullable<System.DateTime> createdon { get; set; }
+        public Nullable<long> modifiedby { get; set; }
+        public Nullable<System.DateTime> modifiedon { get; set; }
     }
 }

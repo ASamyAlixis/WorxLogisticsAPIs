@@ -12,11 +12,18 @@ namespace WorxLogisticsAPIs.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Wrx_Grade
+    public partial class Wrx_Packages
     {
         public long id { get; set; }
-        public string Code { get; set; }
-        public string Grade { get; set; }
+        public string bagname { get; set; }
+        public Nullable<long> bagtype { get; set; }
+        public Nullable<double> bagweight { get; set; }
+        public Nullable<long> weightunit { get; set; }
+        public string colour { get; set; }
+        public Nullable<bool> plain { get; set; }
+        public string Dimensions { get; set; }
+        public Nullable<long> MTConversion { get; set; }
+        public string image { get; set; }
         public Nullable<long> createdby { get; set; }
         public Nullable<System.DateTime> createdon { get; set; }
         public Nullable<long> modifiedby { get; set; }
