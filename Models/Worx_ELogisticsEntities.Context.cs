@@ -50,7 +50,6 @@ namespace WorxLogisticsAPIs.Models
         public virtual DbSet<Wrx_ProdInstruct> Wrx_ProdInstruct { get; set; }
         public virtual DbSet<Wrx_PurchaseContractsMaster> Wrx_PurchaseContractsMaster { get; set; }
         public virtual DbSet<Wrx_RailCarsTypes> Wrx_RailCarsTypes { get; set; }
-        public virtual DbSet<Wrx_RawDataTrans> Wrx_RawDataTrans { get; set; }
         public virtual DbSet<Wrx_Rights> Wrx_Rights { get; set; }
         public virtual DbSet<Wrx_Roles> Wrx_Roles { get; set; }
         public virtual DbSet<Wrx_SalesContractMaster> Wrx_SalesContractMaster { get; set; }
@@ -73,5 +72,7 @@ namespace WorxLogisticsAPIs.Models
         public virtual DbSet<Wrx_Pkagetypes> Wrx_Pkagetypes { get; set; }
         public virtual DbSet<Wrx_RailCarMap> Wrx_RailCarMap { get; set; }
         public virtual DbSet<NotesAndAttachement> NotesAndAttachements { get; set; }
+        public virtual DbSet<Wrx_Dox> Wrx_Dox { get; set; }
+        public virtual DbSet<Wrx_SalesTrans> Wrx_SalesTrans { get; set; }
     }
 }

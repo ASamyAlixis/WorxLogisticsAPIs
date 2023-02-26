@@ -143,7 +143,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="Image" Type="nvarchar" MaxLength="50" />
+          <Property Name="image" Type="nvarchar" MaxLength="50" />
           <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Continent" Type="nchar" MaxLength="5" />
@@ -311,6 +311,40 @@ warning 6002: The table/view 'Worx_ELogistics.dbo.Wrx_DocumentationTracking' doe
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DocumentTerms" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Wrx_Dox">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BLNo" Type="nchar" MaxLength="10" />
+          <Property Name="BLDate" Type="datetime" />
+          <Property Name="DTHC" Type="nchar" MaxLength="10" />
+          <Property Name="FreeDays" Type="bigint" />
+          <Property Name="B13No" Type="bigint" />
+          <Property Name="B13Date" Type="datetime" />
+          <Property Name="B13Value" Type="nchar" MaxLength="10" />
+          <Property Name="FreightValue" Type="nchar" MaxLength="10" />
+          <Property Name="BLISent" Type="nvarchar" MaxLength="50" />
+          <Property Name="BLDraftReceived" Type="nvarchar" MaxLength="50" />
+          <Property Name="Appropriation" Type="nvarchar" MaxLength="50" />
+          <Property Name="BLApproval" Type="nvarchar" MaxLength="50" />
+          <Property Name="OBLReceived" Type="nvarchar" MaxLength="50" />
+          <Property Name="WQrequest" Type="nvarchar" MaxLength="50" />
+          <Property Name="WQDraftReceived" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="WQDraftApproval" Type="nvarchar" MaxLength="50" />
+          <Property Name="OriginalWQReceived" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phytorequest" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhytoDraftReceived" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhytoDraftApproval" Type="nvarchar" MaxLength="50" />
+          <Property Name="OriginalPhytoReceived" Type="nvarchar" MaxLength="50" />
+          <Property Name="COODraftReceived" Type="nvarchar" MaxLength="50" />
+          <Property Name="COODraftApproval" Type="nvarchar" MaxLength="50" />
+          <Property Name="COOPhytoReceived" Type="nvarchar" MaxLength="50" />
+          <Property Name="Insurance" Type="bit" />
+          <Property Name="InsuranceValue" Type="nchar" MaxLength="10" />
+          <Property Name="InsurancecetificateNo" Type="nchar" MaxLength="10" />
+          <Property Name="InsuranceDate" Type="datetime" />
         </EntityType>
         <EntityType Name="Wrx_DTHC">
           <Key>
@@ -538,47 +572,6 @@ warning 6002: The table/view 'Worx_ELogistics.dbo.Wrx_DocumentationTracking' doe
           <Property Name="modifiedby" Type="bigint" />
           <Property Name="modifiedon" Type="datetime" />
         </EntityType>
-        <EntityType Name="Wrx_RawDataTrans">
-          <Key>
-            <PropertyRef Name="ConID" />
-          </Key>
-          <Property Name="ConID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Buyer" Type="nvarchar" MaxLength="50" />
-          <Property Name="Configuration" Type="nvarchar" MaxLength="50" />
-          <Property Name="Contractdate" Type="nvarchar" MaxLength="50" />
-          <Property Name="Contractnumber" Type="nvarchar" MaxLength="50" />
-          <Property Name="Quantity" Type="nvarchar" MaxLength="50" />
-          <Property Name="Contractstatus" Type="nvarchar" MaxLength="50" />
-          <Property Name="Currency" Type="nvarchar" MaxLength="50" />
-          <Property Name="Deliveryfromdate" Type="nvarchar" MaxLength="50" />
-          <Property Name="Deliveryterms" Type="nvarchar" MaxLength="50" />
-          <Property Name="Deliverytodate" Type="nvarchar" MaxLength="50" />
-          <Property Name="Duedate" Type="nvarchar" MaxLength="50" />
-          <Property Name="Grade" Type="nvarchar" MaxLength="50" />
-          <Property Name="Itemnumber" Type="nvarchar" MaxLength="50" />
-          <Property Name="CmpName" Type="nvarchar" MaxLength="50" />
-          <Property Name="Numberofbags" Type="nvarchar" MaxLength="50" />
-          <Property Name="ORIGINVARIETY" Type="nvarchar" MaxLength="50" />
-          <Property Name="Ordertype" Type="nvarchar" MaxLength="50" />
-          <Property Name="Payment" Type="nvarchar" MaxLength="50" />
-          <Property Name="Paymentdate" Type="nvarchar" MaxLength="50" />
-          <Property Name="Portdischarge" Type="nvarchar" MaxLength="50" />
-          <Property Name="Portofloading" Type="nvarchar" MaxLength="50" />
-          <Property Name="Price" Type="nvarchar" MaxLength="50" />
-          <Property Name="Site" Type="nvarchar" MaxLength="50" />
-          <Property Name="Status" Type="nvarchar" MaxLength="50" />
-          <Property Name="Unit" Type="nvarchar" MaxLength="50" />
-          <Property Name="WareHouse" Type="nvarchar" MaxLength="50" />
-          <Property Name="createdby" Type="date" />
-          <Property Name="createdon" Type="date" />
-          <Property Name="modifiedby" Type="date" />
-          <Property Name="modifiedon" Type="date" />
-          <Property Name="ownedon" Type="datetime" />
-          <Property Name="ownedby" Type="datetime" />
-          <Property Name="Termsofpayment" Type="nvarchar" MaxLength="50" />
-          <Property Name="Amount" Type="nvarchar" MaxLength="50" />
-          <Property Name="Referencenumber" Type="nvarchar" MaxLength="50" />
-        </EntityType>
         <EntityType Name="Wrx_Rights">
           <Key>
             <PropertyRef Name="id" />
@@ -669,6 +662,56 @@ warning 6002: The table/view 'Worx_ELogistics.dbo.Wrx_DocumentationTracking' doe
           <Property Name="modifiedby" Type="bigint" />
           <Property Name="modifiedon" Type="datetime" />
           <Property Name="Ownerid" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Wrx_SalesTrans">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Contractnumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contractdate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Configuration" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contractstatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="ORIGINVARIETY" Type="nvarchar" MaxLength="50" />
+          <Property Name="Grade" Type="nvarchar" MaxLength="50" />
+          <Property Name="Site" Type="nvarchar" MaxLength="50" />
+          <Property Name="WareHouse" Type="nvarchar" MaxLength="50" />
+          <Property Name="SPOrder" Type="nvarchar" MaxLength="50" />
+          <Property Name="Itemnumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Buyer" Type="nvarchar" MaxLength="50" />
+          <Property Name="CmpName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CommisionGroup" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ordertype" Type="nvarchar" MaxLength="50" />
+          <Property Name="Deliveryfromdate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Deliverytodate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Deliveryterms" Type="nvarchar" MaxLength="50" />
+          <Property Name="Portofloading" Type="nvarchar" MaxLength="50" />
+          <Property Name="Portdischarge" Type="nvarchar" MaxLength="50" />
+          <Property Name="Unit" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cquantity" Type="float" />
+          <Property Name="Squantity" Type="float" />
+          <Property Name="Numberofbags" Type="nvarchar" MaxLength="50" />
+          <Property Name="Currency" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="nvarchar" MaxLength="50" />
+          <Property Name="Payment" Type="nvarchar" MaxLength="50" />
+          <Property Name="Speriod" Type="float" />
+          <Property Name="VesselName" Type="nchar" MaxLength="10" />
+          <Property Name="Billoflading" Type="nchar" MaxLength="10" />
+          <Property Name="InvoiceAcc" Type="nchar" MaxLength="10" />
+          <Property Name="Invoice" Type="nchar" MaxLength="10" />
+          <Property Name="InvoiceDate" Type="datetime" />
+          <Property Name="Duedate" Type="datetime" />
+          <Property Name="InvoiceAmount" Type="float" />
+          <Property Name="PaymentRec" Type="float" />
+          <Property Name="Paymentdate" Type="datetime" />
+          <Property Name="Outstanding" Type="float" />
+          <Property Name="AccStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="createdby" Type="bigint" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="modifiedby" Type="bigint" />
+          <Property Name="modifiedon" Type="datetime" />
+          <Property Name="ownedon" Type="datetime" />
+          <Property Name="ownedby" Type="bigint" />
         </EntityType>
         <EntityType Name="Wrx_SecurityLevel">
           <Key>
@@ -841,6 +884,7 @@ warning 6002: The table/view 'Worx_ELogistics.dbo.Wrx_DocumentationTracking' doe
           <EntitySet Name="Wrx_Destination" EntityType="Self.Wrx_Destination" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wrx_DischargePorts" EntityType="Self.Wrx_DischargePorts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wrx_DocumentTerms" EntityType="Self.Wrx_DocumentTerms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_Dox" EntityType="Self.Wrx_Dox" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wrx_DTHC" EntityType="Self.Wrx_DTHC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wrx_FCL" EntityType="Self.Wrx_FCL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wrx_Grade" EntityType="Self.Wrx_Grade" Schema="dbo" store:Type="Tables" />
@@ -857,11 +901,11 @@ warning 6002: The table/view 'Worx_ELogistics.dbo.Wrx_DocumentationTracking' doe
           <EntitySet Name="Wrx_RailCarMap" EntityType="Self.Wrx_RailCarMap" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wrx_RailCars" EntityType="Self.Wrx_RailCars" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wrx_RailCarsTypes" EntityType="Self.Wrx_RailCarsTypes" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Wrx_RawDataTrans" EntityType="Self.Wrx_RawDataTrans" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wrx_Rights" EntityType="Self.Wrx_Rights" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wrx_Roles" EntityType="Self.Wrx_Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wrx_SalesContractMaster" EntityType="Self.Wrx_SalesContractMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wrx_SalesContracts" EntityType="Self.Wrx_SalesContracts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wrx_SalesTrans" EntityType="Self.Wrx_SalesTrans" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wrx_SecurityLevel" EntityType="Self.Wrx_SecurityLevel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wrx_SendingBank" EntityType="Self.Wrx_SendingBank" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wrx_ServcieType" EntityType="Self.Wrx_ServcieType" Schema="dbo" store:Type="Tables" />
@@ -1085,8 +1129,7 @@ warning 6002: The table/view 'Worx_ELogistics.dbo.Wrx_DocumentationTracking' doe
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Continent" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
           <Property Name="createdby" Type="Int64" />
@@ -1094,6 +1137,7 @@ warning 6002: The table/view 'Worx_ELogistics.dbo.Wrx_DocumentationTracking' doe
           <Property Name="modifiedby" Type="Int64" />
           <Property Name="modifiedon" Type="DateTime" Precision="3" />
           <Property Name="status" Type="Boolean" />
+          <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Wrx_CropYear">
           <Key>
@@ -1322,47 +1366,6 @@ warning 6002: The table/view 'Worx_ELogistics.dbo.Wrx_DocumentationTracking' doe
           <Property Name="createdon" Type="DateTime" Precision="3" />
           <Property Name="modifiedby" Type="Int32" />
           <Property Name="modifiedon" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="Wrx_RawDataTrans">
-          <Key>
-            <PropertyRef Name="ConID" />
-          </Key>
-          <Property Name="ConID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Buyer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Configuration" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Contractdate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Contractnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Quantity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Contractstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Deliveryfromdate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Deliveryterms" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Deliverytodate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Duedate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Itemnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CmpName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Numberofbags" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ORIGINVARIETY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Ordertype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Payment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Paymentdate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Portdischarge" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Portofloading" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Site" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="WareHouse" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="createdby" Type="DateTime" Precision="0" />
-          <Property Name="createdon" Type="DateTime" Precision="0" />
-          <Property Name="modifiedby" Type="DateTime" Precision="0" />
-          <Property Name="modifiedon" Type="DateTime" Precision="0" />
-          <Property Name="ownedon" Type="DateTime" Precision="3" />
-          <Property Name="ownedby" Type="DateTime" Precision="3" />
-          <Property Name="Termsofpayment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Amount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Referencenumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Wrx_Rights">
           <Key>
@@ -1739,7 +1742,6 @@ warning 6002: The table/view 'Worx_ELogistics.dbo.Wrx_DocumentationTracking' doe
           <EntitySet Name="Wrx_ProdInstruct" EntityType="Self.Wrx_ProdInstruct" />
           <EntitySet Name="Wrx_PurchaseContractsMaster" EntityType="Self.Wrx_PurchaseContractsMaster" />
           <EntitySet Name="Wrx_RailCarsTypes" EntityType="Self.Wrx_RailCarsTypes" />
-          <EntitySet Name="Wrx_RawDataTrans" EntityType="Self.Wrx_RawDataTrans" />
           <EntitySet Name="Wrx_Rights" EntityType="Self.Wrx_Rights" />
           <EntitySet Name="Wrx_Roles" EntityType="Self.Wrx_Roles" />
           <EntitySet Name="Wrx_SalesContractMaster" EntityType="Self.Wrx_SalesContractMaster" />
@@ -1770,6 +1772,8 @@ warning 6002: The table/view 'Worx_ELogistics.dbo.Wrx_DocumentationTracking' doe
           <EntitySet Name="Wrx_Pkagetypes" EntityType="Worx_ELogisticsModel.Wrx_Pkagetypes" />
           <EntitySet Name="Wrx_RailCarMap" EntityType="Worx_ELogisticsModel.Wrx_RailCarMap" />
           <EntitySet Name="NotesAndAttachements" EntityType="Worx_ELogisticsModel.NotesAndAttachement" />
+          <EntitySet Name="Wrx_Dox" EntityType="Worx_ELogisticsModel.Wrx_Dox" />
+          <EntitySet Name="Wrx_SalesTrans" EntityType="Worx_ELogisticsModel.Wrx_SalesTrans" />
         </EntityContainer>
         <EntityType Name="Wrx_GrainCalendar">
           <Key>
@@ -1850,6 +1854,90 @@ warning 6002: The table/view 'Worx_ELogistics.dbo.Wrx_DocumentationTracking' doe
           <Property Name="OwnerId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="OwnerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CratedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Wrx_Dox">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BLNo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="BLDate" Type="DateTime" Precision="3" />
+          <Property Name="DTHC" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="FreeDays" Type="Int64" />
+          <Property Name="B13No" Type="Int64" />
+          <Property Name="B13Date" Type="DateTime" Precision="3" />
+          <Property Name="B13Value" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="FreightValue" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="BLISent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BLDraftReceived" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Appropriation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BLApproval" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OBLReceived" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WQrequest" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WQDraftReceived" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WQDraftApproval" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OriginalWQReceived" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phytorequest" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhytoDraftReceived" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhytoDraftApproval" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OriginalPhytoReceived" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="COODraftReceived" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="COODraftApproval" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="COOPhytoReceived" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Insurance" Type="Boolean" />
+          <Property Name="InsuranceValue" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="InsurancecetificateNo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="InsuranceDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Wrx_SalesTrans">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="Contractnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contractdate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Configuration" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Contractstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ORIGINVARIETY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Site" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WareHouse" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SPOrder" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Itemnumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Buyer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CmpName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CommisionGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ordertype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Deliveryfromdate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Deliverytodate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Deliveryterms" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Portofloading" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Portdischarge" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cquantity" Type="Double" />
+          <Property Name="Squantity" Type="Double" />
+          <Property Name="Numberofbags" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Payment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Speriod" Type="Double" />
+          <Property Name="VesselName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Billoflading" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="InvoiceAcc" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Invoice" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="InvoiceDate" Type="DateTime" Precision="3" />
+          <Property Name="Duedate" Type="DateTime" Precision="3" />
+          <Property Name="InvoiceAmount" Type="Double" />
+          <Property Name="PaymentRec" Type="Double" />
+          <Property Name="Paymentdate" Type="DateTime" Precision="3" />
+          <Property Name="Outstanding" Type="Double" />
+          <Property Name="AccStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="createdby" Type="Int64" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="Int64" />
+          <Property Name="modifiedon" Type="DateTime" Precision="3" />
+          <Property Name="ownedon" Type="DateTime" Precision="3" />
+          <Property Name="ownedby" Type="Int64" />
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1976,7 +2064,7 @@ warning 6002: The table/view 'Worx_ELogistics.dbo.Wrx_DocumentationTracking' doe
           <EntitySetMapping Name="Wrx_Countries">
             <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_Countries">
               <MappingFragment StoreEntitySet="Wrx_Countries">
-                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="image" ColumnName="image" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Continent" ColumnName="Continent" />
@@ -2226,48 +2314,6 @@ warning 6002: The table/view 'Worx_ELogistics.dbo.Wrx_DocumentationTracking' doe
                 <ScalarProperty Name="createdon" ColumnName="createdon" />
                 <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
                 <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Wrx_RawDataTrans">
-            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_RawDataTrans">
-              <MappingFragment StoreEntitySet="Wrx_RawDataTrans">
-                <ScalarProperty Name="ConID" ColumnName="ConID" />
-                <ScalarProperty Name="Buyer" ColumnName="Buyer" />
-                <ScalarProperty Name="Configuration" ColumnName="Configuration" />
-                <ScalarProperty Name="Contractdate" ColumnName="Contractdate" />
-                <ScalarProperty Name="Contractnumber" ColumnName="Contractnumber" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="Contractstatus" ColumnName="Contractstatus" />
-                <ScalarProperty Name="Currency" ColumnName="Currency" />
-                <ScalarProperty Name="Deliveryfromdate" ColumnName="Deliveryfromdate" />
-                <ScalarProperty Name="Deliveryterms" ColumnName="Deliveryterms" />
-                <ScalarProperty Name="Deliverytodate" ColumnName="Deliverytodate" />
-                <ScalarProperty Name="Duedate" ColumnName="Duedate" />
-                <ScalarProperty Name="Grade" ColumnName="Grade" />
-                <ScalarProperty Name="Itemnumber" ColumnName="Itemnumber" />
-                <ScalarProperty Name="CmpName" ColumnName="CmpName" />
-                <ScalarProperty Name="Numberofbags" ColumnName="Numberofbags" />
-                <ScalarProperty Name="ORIGINVARIETY" ColumnName="ORIGINVARIETY" />
-                <ScalarProperty Name="Ordertype" ColumnName="Ordertype" />
-                <ScalarProperty Name="Payment" ColumnName="Payment" />
-                <ScalarProperty Name="Paymentdate" ColumnName="Paymentdate" />
-                <ScalarProperty Name="Portdischarge" ColumnName="Portdischarge" />
-                <ScalarProperty Name="Portofloading" ColumnName="Portofloading" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Site" ColumnName="Site" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Unit" ColumnName="Unit" />
-                <ScalarProperty Name="WareHouse" ColumnName="WareHouse" />
-                <ScalarProperty Name="createdby" ColumnName="createdby" />
-                <ScalarProperty Name="createdon" ColumnName="createdon" />
-                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
-                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
-                <ScalarProperty Name="ownedon" ColumnName="ownedon" />
-                <ScalarProperty Name="ownedby" ColumnName="ownedby" />
-                <ScalarProperty Name="Termsofpayment" ColumnName="Termsofpayment" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="Referencenumber" ColumnName="Referencenumber" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2690,6 +2736,92 @@ warning 6002: The table/view 'Worx_ELogistics.dbo.Wrx_DocumentationTracking' doe
                 <ScalarProperty Name="EntityID" ColumnName="EntityID" />
                 <ScalarProperty Name="Subject" ColumnName="Subject" />
                 <ScalarProperty Name="NotesID" ColumnName="NotesID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_Dox">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_Dox">
+              <MappingFragment StoreEntitySet="Wrx_Dox">
+                <ScalarProperty Name="InsuranceDate" ColumnName="InsuranceDate" />
+                <ScalarProperty Name="InsurancecetificateNo" ColumnName="InsurancecetificateNo" />
+                <ScalarProperty Name="InsuranceValue" ColumnName="InsuranceValue" />
+                <ScalarProperty Name="Insurance" ColumnName="Insurance" />
+                <ScalarProperty Name="COOPhytoReceived" ColumnName="COOPhytoReceived" />
+                <ScalarProperty Name="COODraftApproval" ColumnName="COODraftApproval" />
+                <ScalarProperty Name="COODraftReceived" ColumnName="COODraftReceived" />
+                <ScalarProperty Name="OriginalPhytoReceived" ColumnName="OriginalPhytoReceived" />
+                <ScalarProperty Name="PhytoDraftApproval" ColumnName="PhytoDraftApproval" />
+                <ScalarProperty Name="PhytoDraftReceived" ColumnName="PhytoDraftReceived" />
+                <ScalarProperty Name="Phytorequest" ColumnName="Phytorequest" />
+                <ScalarProperty Name="OriginalWQReceived" ColumnName="OriginalWQReceived" />
+                <ScalarProperty Name="WQDraftApproval" ColumnName="WQDraftApproval" />
+                <ScalarProperty Name="WQDraftReceived" ColumnName="WQDraftReceived" />
+                <ScalarProperty Name="WQrequest" ColumnName="WQrequest" />
+                <ScalarProperty Name="OBLReceived" ColumnName="OBLReceived" />
+                <ScalarProperty Name="BLApproval" ColumnName="BLApproval" />
+                <ScalarProperty Name="Appropriation" ColumnName="Appropriation" />
+                <ScalarProperty Name="BLDraftReceived" ColumnName="BLDraftReceived" />
+                <ScalarProperty Name="BLISent" ColumnName="BLISent" />
+                <ScalarProperty Name="FreightValue" ColumnName="FreightValue" />
+                <ScalarProperty Name="B13Value" ColumnName="B13Value" />
+                <ScalarProperty Name="B13Date" ColumnName="B13Date" />
+                <ScalarProperty Name="B13No" ColumnName="B13No" />
+                <ScalarProperty Name="FreeDays" ColumnName="FreeDays" />
+                <ScalarProperty Name="DTHC" ColumnName="DTHC" />
+                <ScalarProperty Name="BLDate" ColumnName="BLDate" />
+                <ScalarProperty Name="BLNo" ColumnName="BLNo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wrx_SalesTrans">
+            <EntityTypeMapping TypeName="Worx_ELogisticsModel.Wrx_SalesTrans">
+              <MappingFragment StoreEntitySet="Wrx_SalesTrans">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ownedby" ColumnName="ownedby" />
+                <ScalarProperty Name="ownedon" ColumnName="ownedon" />
+                <ScalarProperty Name="modifiedon" ColumnName="modifiedon" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="AccStatus" ColumnName="AccStatus" />
+                <ScalarProperty Name="Outstanding" ColumnName="Outstanding" />
+                <ScalarProperty Name="Paymentdate" ColumnName="Paymentdate" />
+                <ScalarProperty Name="PaymentRec" ColumnName="PaymentRec" />
+                <ScalarProperty Name="InvoiceAmount" ColumnName="InvoiceAmount" />
+                <ScalarProperty Name="Duedate" ColumnName="Duedate" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+                <ScalarProperty Name="InvoiceAcc" ColumnName="InvoiceAcc" />
+                <ScalarProperty Name="Billoflading" ColumnName="Billoflading" />
+                <ScalarProperty Name="VesselName" ColumnName="VesselName" />
+                <ScalarProperty Name="Speriod" ColumnName="Speriod" />
+                <ScalarProperty Name="Payment" ColumnName="Payment" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="Numberofbags" ColumnName="Numberofbags" />
+                <ScalarProperty Name="Squantity" ColumnName="Squantity" />
+                <ScalarProperty Name="Cquantity" ColumnName="Cquantity" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Portdischarge" ColumnName="Portdischarge" />
+                <ScalarProperty Name="Portofloading" ColumnName="Portofloading" />
+                <ScalarProperty Name="Deliveryterms" ColumnName="Deliveryterms" />
+                <ScalarProperty Name="Deliverytodate" ColumnName="Deliverytodate" />
+                <ScalarProperty Name="Deliveryfromdate" ColumnName="Deliveryfromdate" />
+                <ScalarProperty Name="Ordertype" ColumnName="Ordertype" />
+                <ScalarProperty Name="CommisionGroup" ColumnName="CommisionGroup" />
+                <ScalarProperty Name="CmpName" ColumnName="CmpName" />
+                <ScalarProperty Name="Buyer" ColumnName="Buyer" />
+                <ScalarProperty Name="Itemnumber" ColumnName="Itemnumber" />
+                <ScalarProperty Name="SPOrder" ColumnName="SPOrder" />
+                <ScalarProperty Name="WareHouse" ColumnName="WareHouse" />
+                <ScalarProperty Name="Site" ColumnName="Site" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="ORIGINVARIETY" ColumnName="ORIGINVARIETY" />
+                <ScalarProperty Name="Contractstatus" ColumnName="Contractstatus" />
+                <ScalarProperty Name="Configuration" ColumnName="Configuration" />
+                <ScalarProperty Name="Contractdate" ColumnName="Contractdate" />
+                <ScalarProperty Name="Contractnumber" ColumnName="Contractnumber" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
