@@ -130,8 +130,6 @@ namespace WorxLogisticsAPIs.Controllers
                 res.code = -1;
                 return res;
             }
-
-            
             try
             {
                 
@@ -156,7 +154,6 @@ namespace WorxLogisticsAPIs.Controllers
                         res.result.Add("maxID", maxID);
 
                 }
-
 
                 //return StatusCode(200, usersWithRoles); // Get all users   
             }

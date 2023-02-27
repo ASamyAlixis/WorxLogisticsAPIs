@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="eb4eb76e09ec461f82b0074bd21c78af" Name="Diagram1" ZoomLevel="68">
+      <Diagram DiagramId="eb4eb76e09ec461f82b0074bd21c78af" Name="Diagram1" ZoomLevel="101">
         <EntityTypeShape EntityType="Worx_ELogisticsModel.Customer" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Worx_ELogisticsModel.Wrx_BatchContract" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Worx_ELogisticsModel.Wrx_Commodity" Width="1.5" PointX="9.75" PointY="5.75" IsExpanded="true" />

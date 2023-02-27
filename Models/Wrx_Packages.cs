@@ -14,19 +14,19 @@ namespace WorxLogisticsAPIs.Models
     
     public partial class Wrx_Packages
     {
-        public long id { get; set; }
+        public int id { get; set; }
         public string bagname { get; set; }
-        public Nullable<long> bagtype { get; set; }
+        public Nullable<int> bagtype { get; set; }
         public Nullable<double> bagweight { get; set; }
-        public Nullable<long> weightunit { get; set; }
+        public Nullable<int> weightunit { get; set; }
         public string colour { get; set; }
         public Nullable<bool> plain { get; set; }
         public string Dimensions { get; set; }
-        public Nullable<long> MTConversion { get; set; }
+        public Nullable<double> MTConversion { get; set; }
         public string image { get; set; }
-        public Nullable<long> createdby { get; set; }
+        public Nullable<int> createdby { get; set; }
         public Nullable<System.DateTime> createdon { get; set; }
-        public Nullable<long> modifiedby { get; set; }
+        public Nullable<int> modifiedby { get; set; }
         public Nullable<System.DateTime> modifiedon { get; set; }
     }
 }

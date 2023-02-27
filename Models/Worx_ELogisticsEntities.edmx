@@ -433,7 +433,7 @@ warning 6002: The table/view 'Worx_ELogistics.dbo.Wrx_DocumentationTracking' doe
           <Property Name="colour" Type="nvarchar" MaxLength="50" />
           <Property Name="plain" Type="bit" />
           <Property Name="Dimensions" Type="nvarchar" MaxLength="50" />
-          <Property Name="MTConversion" Type="bigint" />
+          <Property Name="MTConversion" Type="float" />
           <Property Name="image" Type="nvarchar" MaxLength="50" />
           <Property Name="createdby" Type="bigint" />
           <Property Name="createdon" Type="datetime" />
@@ -480,6 +480,7 @@ warning 6002: The table/view 'Worx_ELogistics.dbo.Wrx_DocumentationTracking' doe
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Gw" Type="bigint" />
           <Property Name="Plant" Type="bigint" />
           <Property Name="UnitType" Type="bigint" />
           <Property Name="UnitNum" Type="bigint" />
@@ -496,7 +497,6 @@ warning 6002: The table/view 'Worx_ELogistics.dbo.Wrx_DocumentationTracking' doe
           <Property Name="createdon" Type="datetime" />
           <Property Name="modifiedby" Type="bigint" />
           <Property Name="modifiedon" Type="datetime" />
-          <Property Name="Gw" Type="bigint" />
         </EntityType>
         <EntityType Name="Wrx_PurchaseContractsMaster">
           <Key>
@@ -804,6 +804,7 @@ warning 6002: The table/view 'Worx_ELogistics.dbo.Wrx_DocumentationTracking' doe
           <Key>
             <PropertyRef Name="id" />
           </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TransID" Type="nchar" MaxLength="15" Nullable="false" />
           <Property Name="TransName" Type="nvarchar" MaxLength="50" />
           <Property Name="createdby" Type="bigint" />
@@ -811,7 +812,6 @@ warning 6002: The table/view 'Worx_ELogistics.dbo.Wrx_DocumentationTracking' doe
           <Property Name="modifiedby" Type="bigint" />
           <Property Name="modifiedon" Type="datetime" />
           <Property Name="Logo" Type="nvarchar" MaxLength="50" />
-          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="Wrx_Units">
           <Key>
@@ -1796,19 +1796,19 @@ warning 6002: The table/view 'Worx_ELogistics.dbo.Wrx_DocumentationTracking' doe
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="bagname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="bagtype" Type="Int64" />
+          <Property Name="bagtype" Type="Int32" />
           <Property Name="bagweight" Type="Double" />
-          <Property Name="weightunit" Type="Int64" />
+          <Property Name="weightunit" Type="Int32" />
           <Property Name="colour" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="plain" Type="Boolean" />
           <Property Name="Dimensions" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MTConversion" Type="Int64" />
+          <Property Name="MTConversion" Type="Double" />
           <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="createdby" Type="Int64" />
+          <Property Name="createdby" Type="Int32" />
           <Property Name="createdon" Type="DateTime" Precision="3" />
-          <Property Name="modifiedby" Type="Int64" />
+          <Property Name="modifiedby" Type="Int32" />
           <Property Name="modifiedon" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Wrx_Pkagetypes">
